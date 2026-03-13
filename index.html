@@ -74,15 +74,15 @@ fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQTkEhpueGD-ZYqcpqbfRRseI
 
 .then(data => {
 
-const filas = data.split("\n");
+const filas = data.trim().split("\n");
 
 filas.forEach(fila => {
 
-const columnas = fila.split(",");
+const columnas = fila.split(",").map(c => c.replace(/"/g,"").trim());
 
-if(columnas[1]=== id){
+if(columnas[1] === id){
 
-document.getElementById("nombre").innerText = columnas[0]
+document.getElementById("nombre").innerText = columnas[0];
 document.getElementById("rating").innerText = "⭐ "+columnas[2]+" / 5";
 document.getElementById("boton").href = columnas[3];
 
@@ -91,9 +91,3 @@ document.getElementById("boton").href = columnas[3];
 });
 
 });
-
-</script>
-
-</body>
-
-</html>
