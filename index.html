@@ -2,7 +2,9 @@
 <html>
 
 <head>
+
 <meta charset="UTF-8">
+
 <title>Calificación trabajador</title>
 
 <style>
@@ -40,16 +42,17 @@ cursor:pointer;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<h1 id="nombre">Buscando trabajador...</h1>
+<h1 id="nombre">Cargando...</h1>
 
 <div class="card">
 
 <div id="rating" class="rating">
-Cargando calificación...
+Cargando...
 </div>
 
 <br>
@@ -65,55 +68,32 @@ Cargando calificación...
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
-if(!id){
-document.getElementById("nombre").textContent = "No se especificó trabajador";
-throw new Error("Falta ID");
-}
+fetch("PEGAR_LINK_CSV_AQUI")
 
-fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQTkEhpueGD-ZYqcpqbfRRseIqgWLhP7mdUoWdrUvT2adu5XPeVgg7nB3K9CnrdIIhxtccsSu689UZR/pub?gid=1507279278&single=true&output=csv")
-
-.then(response => response.text())
+.then(res => res.text())
 
 .then(data => {
 
-const filas = data.trim().split("\n");
+const filas = data.split("\n");
 
-let encontrado = false;
+filas.forEach(fila => {
 
-for(let i=1;i<filas.length;i++){
+const columnas = fila.split(",");
 
-const columnas = filas[i].split(",");
+if(columnas[1]=== id){
 
-const nombre = columnas[0];
-const trabajadorID = columnas[1];
-const promedio = columnas[2];
-const formulario = columnas[3];
-
-if(trabajadorID === id){
-
-document.getElementById("nombre").textContent = nombre;
-document.getElementById("rating").textContent = "⭐ "+promedio+" / 5";
-document.getElementById("boton").href = formulario;
-
-encontrado = true;
+document.getElementById("nombre").innerText = columnas[0]
+document.getElementById("rating").innerText = "⭐ "+columnas[2]+" / 5";
+document.getElementById("boton").href = columnas[3];
 
 }
 
-}
+});
 
-if(!encontrado){
-document.getElementById("nombre").textContent = "Trabajador no encontrado";
-document.getElementById("rating").textContent = "";
-}
-
-})
-
-.catch(error=>{
-document.getElementById("nombre").textContent = "Error cargando datos";
-console.error(error);
 });
 
 </script>
 
 </body>
+
 </html>
