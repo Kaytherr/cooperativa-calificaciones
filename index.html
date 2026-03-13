@@ -76,18 +76,26 @@ fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQTkEhpueGD-ZYqcpqbfRRseI
 
 const filas = data.trim().split("\n");
 
-filas.forEach(fila => {
+for(let i=1;i<filas.length;i++){
 
-const columnas = fila.split(",").map(c => c.replace(/"/g,"").trim());
+let columnas = filas[i].split(",");
 
-if(columnas[1] === id){
+// limpiar comillas
+let nombre = columnas[0].replaceAll('"',"").trim();
+let trabajadorID = columnas[1].replaceAll('"',"").trim();
+let promedio = columnas[2].replaceAll('"',"").trim();
+let formulario = columnas[3].replaceAll('"',"").trim();
 
-document.getElementById("nombre").innerText = columnas[0];
-document.getElementById("rating").innerText = "⭐ "+columnas[2]+" / 5";
-document.getElementById("boton").href = columnas[3];
+if(trabajadorID === id){
+
+document.getElementById("nombre").innerText = nombre;
+document.getElementById("rating").innerText = "⭐ "+promedio+" / 5";
+document.getElementById("boton").href = formulario;
+
+}
 
 }
 
 });
 
-});
+</script>
