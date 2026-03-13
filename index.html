@@ -1,72 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Calificación trabajador</title>
-
-<style>
-body{
-font-family:Arial;
-background:#2f6f8f;
-color:white;
-text-align:center;
-padding:50px;
-}
-
-.card{
-background:white;
-color:black;
-padding:40px;
-border-radius:15px;
-width:320px;
-margin:auto;
-}
-
-.rating{
-font-size:40px;
-}
-</style>
-
-</head>
-
-<body>
-
-<h1 id="nombre"></h1>
-
-<div class="card">
-
-<div class="rating" id="rating">
-Cargando...
-</div>
-
-<br>
-
-<a id="boton" href="#">
-<button>Calificar trabajador</button>
-</a>
-
-</div>
-
 <script>
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
-fetch(https://docs.google.com/spreadsheets/d/e/2PACX-1vQTkEhpueGD-ZYqcpqbfRRseIqgWLhP7mdUoWdrUvT2adu5XPeVgg7nB3K9CnrdIIhxtccsSu689UZR/pub?gid=1507279278&single=true&output=csv)
+fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQTkEhpueGD-ZYqcpqbfRRseIqgWLhP7mdUoWdrUvT2adu5XPeVgg7nB3K9CnrdIIhxtccsSu689UZR/pub?gid=1507279278&single=true&output=csv")
+
 .then(res => res.text())
+
 .then(data => {
 
-const rows = data.split("\n");
+const filas = data.split("\n");
 
-rows.forEach(row => {
+filas.forEach((fila,i) => {
 
-const cols = row.split(",");
+if(i === 0) return; // salta encabezado
 
-if(cols[0] === id){
+const columnas = fila.split(",");
 
-document.getElementById("nombre").innerText = cols[1];
-document.getElementById("rating").innerText = "⭐ "+cols[2]+" / 5";
-document.getElementById("boton").href = cols[3];
+const nombre = columnas[0];
+const trabajadorID = columnas[1];
+const promedio = columnas[2];
+const formulario = columnas[3];
+
+if(trabajadorID === id){
+
+document.getElementById("nombre").innerText = nombre;
+document.getElementById("rating").innerText = "⭐ "+promedio+" / 5";
+document.getElementById("boton").href = formulario;
 
 }
 
@@ -75,6 +35,3 @@ document.getElementById("boton").href = cols[3];
 });
 
 </script>
-
-</body>
-</html>
