@@ -2,7 +2,6 @@
 <html>
 
 <head>
-
 <meta charset="UTF-8">
 <title>Calificación trabajador</title>
 
@@ -41,17 +40,16 @@ cursor:pointer;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<h1 id="nombre">Cargando...</h1>
+<h1 id="nombre">Buscando trabajador...</h1>
 
 <div class="card">
 
 <div id="rating" class="rating">
-Cargando...
+Cargando calificación...
 </div>
 
 <br>
@@ -67,7 +65,12 @@ Cargando...
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
-fetch("ttps://docs.google.com/spreadsheets/d/e/2PACX-1vQTkEhpueGD-ZYqcpqbfRRseIqgWLhP7mdUoWdrUvT2adu5XPeVgg7nB3K9CnrdIIhxtccsSu689UZR/pub?gid=1507279278&single=true&output=csv")
+if(!id){
+document.getElementById("nombre").textContent = "No se especificó trabajador";
+throw new Error("Falta ID");
+}
+
+fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQTkEhpueGD-ZYqcpqbfRRseIqgWLhP7mdUoWdrUvT2adu5XPeVgg7nB3K9CnrdIIhxtccsSu689UZR/pub?gid=1507279278&single=true&output=csv")
 
 .then(response => response.text())
 
@@ -75,7 +78,9 @@ fetch("ttps://docs.google.com/spreadsheets/d/e/2PACX-1vQTkEhpueGD-ZYqcpqbfRRseIq
 
 const filas = data.trim().split("\n");
 
-for(let i = 1; i < filas.length; i++){
+let encontrado = false;
+
+for(let i=1;i<filas.length;i++){
 
 const columnas = filas[i].split(",");
 
@@ -87,17 +92,28 @@ const formulario = columnas[3];
 if(trabajadorID === id){
 
 document.getElementById("nombre").textContent = nombre;
-document.getElementById("rating").textContent = "⭐ " + promedio + " / 5";
+document.getElementById("rating").textContent = "⭐ "+promedio+" / 5";
 document.getElementById("boton").href = formulario;
+
+encontrado = true;
 
 }
 
+}
+
+if(!encontrado){
+document.getElementById("nombre").textContent = "Trabajador no encontrado";
+document.getElementById("rating").textContent = "";
 }
 
 })
 
+.catch(error=>{
+document.getElementById("nombre").textContent = "Error cargando datos";
+console.error(error);
+});
+
 </script>
 
 </body>
-
 </html>
