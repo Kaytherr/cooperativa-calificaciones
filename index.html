@@ -79,10 +79,12 @@ Cargando...
 
 <script>
 
+setInterval(() => location.reload(), 30000);
+
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
-fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQTkEhpueGD-ZYqcpqbfRRseIqgWLhP7mdUoWdrUvT2adu5XPeVgg7nB3K9CnrdIIhxtccsSu689UZR/pub?gid=1507279278&single=true&output=csv")
+fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQTkEhpueGD-ZYqcpqbfRRseIqgWLhP7mdUoWdrUvT2adu5XPeVgg7nB3K9CnrdIIhxtccsSu689UZR/pub?gid=1320754630&single=true&output=csv")
 
 .then(res => res.text())
 
@@ -94,10 +96,10 @@ for(let i=1;i<filas.length;i++){
 
 let columnas = filas[i].split(",");
 
-let nombre = columnas[0].replaceAll('"',"").trim();
-let trabajadorID = columnas[1].replaceAll('"',"").trim();
-let promedio = columnas[2].replaceAll('"',"").trim();
-let formulario = columnas[3].replaceAll('"',"").trim();
+let nombre = columnas[1].replaceAll('"',"").trim();
+let trabajadorID = columnas[0].replaceAll('"',"").trim();
+let promedio = columnas[3].replaceAll('"',"").trim();
+let formulario = columnas[4].replaceAll('"',"").trim();
 
 if(trabajadorID === id){
 
