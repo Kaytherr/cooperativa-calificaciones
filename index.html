@@ -53,14 +53,6 @@ border-radius:50%;
 margin-bottom:10px;
 }
 
-#foto{
-width:120px;
-height:120px;
-border-radius:50%;
-object-fit:cover;
-margin-bottom:15px;
-}
-
 
 </style>
 
@@ -70,7 +62,6 @@ margin-bottom:15px;
 
 <h1 id="nombre">Cargando...</h1>
 
-<img id="foto" src="" alt="Foto trabajador">
 
 <div class="card">
 
@@ -113,7 +104,6 @@ if(trabajadorID === id){
 document.getElementById("nombre").innerText = nombre;
 document.getElementById("rating").innerText = "⭐ "+promedio+" / 5";
 document.getElementById("boton").href = formulario;
-document.getElementById("foto").src = columnas[4];
 
 
 }
