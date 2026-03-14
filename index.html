@@ -107,13 +107,16 @@ let nombre = columnas[0].replaceAll('"',"").trim();
 let trabajadorID = columnas[1].replaceAll('"',"").trim();
 let promedio = columnas[2].replaceAll('"',"").trim();
 let formulario = columnas[3].replaceAll('"',"").trim();
+let foto = columnas[4].replaceAll('"',"").trim();
 
 if(trabajadorID === id){
 
 document.getElementById("nombre").innerText = nombre;
 document.getElementById("rating").innerText = "⭐ "+promedio+" / 5";
 document.getElementById("boton").href = formulario;
-document.getElementById("foto").src = columnas[4];
+document.getElementById("foto").src = foto;
+
+}
 
 }
 
