@@ -4,13 +4,12 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-
-<title>Calificación trabajador</title>
+<title>Perfil del trabajador</title>
 
 <style>
 
 body{
-font-family:Arial;
+font-family: Arial;
 background:#2f6f8f;
 color:white;
 text-align:center;
@@ -23,14 +22,26 @@ background:white;
 color:black;
 padding:30px;
 border-radius:15px;
-width:auto;
 max-width:350px;
 margin:auto;
 box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
+#foto{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:15px;
+}
+
 .rating{
-font-size:36px;
+font-size:22px;
+font-weight:bold;
+margin:10px 0;
+}
+
+#estado{
 font-weight:bold;
 margin:10px 0;
 }
@@ -44,38 +55,29 @@ border-radius:10px;
 font-size:18px;
 cursor:pointer;
 width:100%;
+transition:0.3s;
 }
 
-img{
-width:120px;
-height:120px;
-border-radius:50%;
-margin-bottom:10px;
-}
-
-#foto{
-width:120px;
-height:120px;
-border-radius:50%;
-object-fit:cover;
-margin-bottom:15px;
+button:hover{
+background:#24596f;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<h1 id="nombre">Cargando...</h1>
-
-<img id="foto">
+<h2>Perfil del trabajador</h2>
 
 <div class="card">
 
-<div id="rating" class="rating">
-Cargando...
-</div>
+<img id="foto" src="">
+
+<h2 id="nombre">Cargando...</h2>
+
+<div id="rating" class="rating">Cargando...</div>
+
+<div id="estado"></div>
 
 <br>
 
@@ -87,40 +89,77 @@ Cargando...
 
 <script>
 
-setInterval(() => location.reload(), 30000);
+// refresca cada 60s
+setInterval(() => location.reload(), 60000);
 
+// obtener ID de la URL
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
-fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQTkEhpueGD-ZYqcpqbfRRseIqgWLhP7mdUoWdrUvT2adu5XPeVgg7nB3K9CnrdIIhxtccsSu689UZR/pub?gid=1320754630&single=true&output=csv")
+// 🔴 CAMBIAR ESTE LINK POR TU CSV
+const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTYtWCGqYY1syX0O952yzEl9YIA1fe7ORQLpDIiWz4s51ySBD_grl9iRbdsAkXzv68hJJKfVkTPmzGJ/pub?gid=0&single=true&output=csv";
 
+fetch(url)
 .then(res => res.text())
-
 .then(data => {
 
 const filas = data.trim().split("\n");
+let encontrado = false;
 
 for(let i=1;i<filas.length;i++){
 
 let columnas = filas[i].split(",");
 
-let nombre = columnas[1].replaceAll('"',"").trim();
-let trabajadorID = columnas[0].replaceAll('"',"").trim();
-let promedio = columnas[3].replaceAll('"',"").trim();
-let formulario = columnas[4].replaceAll('"',"").trim();
+// ⚠️ AJUSTADO A TU BASE
+let trabajadorID = columnas[0].replaceAll('"',"").trim(); // ID
+let nombre = columnas[1].replaceAll('"',"").trim(); // Nombre
+let promedio = columnas[2].replaceAll('"',"").trim(); // Promedio
+let cantidad = columnas[3].replaceAll('"',"").trim(); // Cantidad
+let formulario = columnas[4].replaceAll('"',"").trim(); // Link form
+let foto = columnas[5].replaceAll('"',"").trim(); // Foto
+let estado = columnas[6].replaceAll('"',"").trim(); // Estado
 
 if(trabajadorID === id){
 
+encontrado = true;
+
+// nombre
 document.getElementById("nombre").innerText = nombre;
-document.getElementById("rating").innerText = "⭐ "+promedio+" / 5";
+
+// promedio
+if(promedio === "" || promedio === "0"){
+document.getElementById("rating").innerText = "Sin calificaciones";
+} else {
+document.getElementById("rating").innerText = "⭐ " + promedio + " / 5 (" + cantidad + " opiniones)";
+}
+
+// estado
+document.getElementById("estado").innerText = "Estado: " + estado;
+
+if(estado === "Sancionado"){
+document.getElementById("estado").style.color = "red";
+}
+
+// botón
 document.getElementById("boton").href = formulario;
 
-document.getElementById("foto").src = "FOTOS ID/" + trabajadorID + ".jpg";
+// foto
+if(foto !== ""){
+document.getElementById("foto").src = foto;
+}
 
 }
 
+}
+
+// si no encuentra
+if(!encontrado){
+document.body.innerHTML = "<h2>Trabajador no encontrado</h2>";
 }
 
 });
 
 </script>
+
+</body>
+</html>
