@@ -108,7 +108,7 @@ let encontrado = false;
 
 for(let i=1;i<filas.length;i++){
 
-let columnas = filas[i].split(",");
+let columnas = filas[i].match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
 
 // ⚠️ AJUSTADO A TU BASE
 let trabajadorID = columnas[0].replaceAll('"',"").trim(); // ID
