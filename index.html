@@ -108,12 +108,12 @@ let encontrado = false;
 
 for(let i=1;i<filas.length;i++){
 
-let columnas = filas[i].match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
+let columnas = filas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
 
 // ⚠️ AJUSTADO A TU BASE
 let trabajadorID = columnas[0].replaceAll('"',"").trim(); // ID
 let nombre = columnas[1].replaceAll('"',"").trim(); // Nombre
-let promedio = columnas[2].replaceAll('"',"").trim(); // Promedio
+let promedio = columnas[2].replaceAll('"',"").replace(",",".").trim(); // Promedio
 let cantidad = columnas[3].replaceAll('"',"").trim(); // Cantidad
 let formulario = columnas[4].replaceAll('"',"").trim(); // Link form
 let foto = columnas[5].replaceAll('"',"").trim(); // Foto
@@ -158,6 +158,7 @@ document.body.innerHTML = "<h2>Trabajador no encontrado</h2>";
 }
 
 });
+
 
 </script>
 
