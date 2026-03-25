@@ -119,7 +119,7 @@ let formulario = columnas[4].replaceAll('"',"").trim(); // Link form
 let foto = columnas[5].replaceAll('"',"").trim(); // Foto
 let estado = columnas[6].replaceAll('"',"").trim(); // Estado
 
-if(trabajadorID.replace(/^0+/, '') === id.replace(/^0+/, '')){
+if(trabajadorID.trim().replace(/^0+/, '') === id.trim().replace(/^0+/, '')){
 
 encontrado = true;
 
