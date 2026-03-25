@@ -130,7 +130,12 @@ document.getElementById("nombre").innerText = nombre;
 if(promedio === "" || promedio === "0"){
 document.getElementById("rating").innerText = "Sin calificaciones";
 } else {
-document.getElementById("rating").innerText = "⭐ " + promedio + " / 5 (" + cantidad + " opiniones)";
+let promedioNum = parseFloat(promedio);
+
+let promedioRedondeado = promedioNum.toFixed(2);
+
+document.getElementById("rating").innerText = 
+"⭐ " + promedioRedondeado + " / 5 (" + cantidad + " opiniones)";
 }
 
 // estado
@@ -146,6 +151,12 @@ document.getElementById("boton").href = formulario;
 // foto
 if(foto !== ""){
 document.getElementById("foto").src = foto;
+
+if(foto !== ""){
+  document.getElementById("foto").src = foto;
+} else {
+  document.getElementById("foto").src = "https://via.placeholder.com/120";
+}
 }
 
 }
