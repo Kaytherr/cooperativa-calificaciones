@@ -6,24 +6,37 @@
 <title>Cooperativa de Instaladores</title>
 
 <style>
+
 body{
-font-family: Arial;
 margin:0;
+font-family: Arial;
 background:#f4f4f4;
 }
 
+/* HEADER */
 header{
-background:#2f6f8f;
+background:linear-gradient(135deg,#2f6f8f,#1d4e63);
 color:white;
-padding:40px;
+padding:60px 20px;
 text-align:center;
 }
 
+header h1{
+margin:0;
+font-size:40px;
+}
+
+header p{
+font-size:18px;
+}
+
+/* SECCIONES */
 section{
-padding:40px;
+padding:50px 20px;
 text-align:center;
 }
 
+/* SERVICIOS */
 .servicios{
 display:flex;
 justify-content:center;
@@ -33,27 +46,41 @@ flex-wrap:wrap;
 
 .card{
 background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 3px 10px rgba(0,0,0,0.1);
-width:200px;
+padding:25px;
+border-radius:15px;
+width:220px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+transition:0.3s;
 }
 
+.card:hover{
+transform:translateY(-5px);
+}
+
+/* BOTONES */
 button{
 background:#2f6f8f;
 color:white;
 border:none;
-padding:15px;
+padding:15px 20px;
 border-radius:10px;
 cursor:pointer;
+font-size:16px;
+transition:0.3s;
 }
 
+button:hover{
+background:#1d4e63;
+}
+
+/* FOOTER */
 footer{
 background:#222;
 color:white;
-text-align:center;
 padding:20px;
+text-align:center;
 }
+
 </style>
 
 </head>
@@ -62,26 +89,34 @@ padding:20px;
 
 <header>
 <h1>Cooperativa de Instaladores</h1>
-<p>Soluciones profesionales con personal calificado</p>
+<p>Servicios profesionales con personal calificado y verificado</p>
 </header>
 
 <section>
 <h2>Quiénes somos</h2>
-<p>Somos una cooperativa dedicada a brindar servicios de instalación y mantenimiento con trabajadores capacitados.</p>
+<p>Somos una cooperativa dedicada a brindar soluciones de instalación y mantenimiento, garantizando calidad y confianza en cada trabajo.</p>
 </section>
 
 <section>
 <h2>Servicios</h2>
 <div class="servicios">
-<div class="card">Electricidad</div>
-<div class="card">Plomería</div>
-<div class="card">Mantenimiento</div>
+<div class="card">⚡ Electricidad</div>
+<div class="card">🚿 Plomería</div>
+<div class="card">🛠️ Mantenimiento</div>
 </div>
 </section>
 
 <section>
-<h2>Verificación de trabajadores</h2>
-<p>Escaneá el código QR del carnet para ver la información y calificación del trabajador.</p>
+<h2>Transparencia y confianza</h2>
+<p>Cada trabajador cuenta con un carnet con código QR que permite verificar su desempeño, historial y calificaciones en tiempo real.</p>
+</section>
+
+<section>
+<h2>Reclamos</h2>
+<p>Si tuviste algún inconveniente con un servicio, podés realizar un reclamo.</p>
+<a href="#">
+<button>Realizar reclamo</button>
+</a>
 </section>
 
 <section>
