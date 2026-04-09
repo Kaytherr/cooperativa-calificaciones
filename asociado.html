@@ -136,9 +136,9 @@ encontrado = true;
 // nombre
 document.getElementById("nombre").innerText = nombre;
 
-document.getElementById("matricula").innerText = "Matrícula: " + matricula;
+document.getElementById("matricula").innerText = "n.º Matrícula: " + matricula;
 document.getElementById("direccion").innerText = "Dirección: " + direccion;
-document.getElementById("telefono").innerText = "Tel: " + telefono;
+document.getElementById("telefono").innerText = "Teléfono: " + telefono;
 document.getElementById("categoria").innerText = "Categoría: " + categoria;
 
 if(estado === "Activo"){
@@ -161,8 +161,6 @@ document.getElementById("rating").innerText =
 "⭐ " + promedioRedondeado + " / 5 (" + cantidad + " opiniones)";
 }
 
-// estado
-document.getElementById("estado").innerText = "Estado: " + estado;
 
 if(estado === "Sancionado"){
 document.getElementById("estado").style.color = "red";
