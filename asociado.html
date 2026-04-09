@@ -10,23 +10,31 @@
 
 body{
 font-family: Arial;
-background:#2f6f8f;
+background:#2c5d73;
 color:white;
 text-align:center;
 margin:0;
 padding:20px;
 }
 
+/* LOGO */
+.logo{
+width:120px;
+margin-bottom:10px;
+}
+
+/* TARJETA */
 .card{
 background:white;
 color:black;
-padding:30px;
-border-radius:15px;
+padding:40px;
+border-radius:20px;
 max-width:350px;
 margin:auto;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
+/* FOTO */
 #foto{
 width:120px;
 height:120px;
@@ -35,19 +43,32 @@ object-fit:cover;
 margin-bottom:15px;
 }
 
+/* TEXTO */
+.info p{
+margin:8px 0;
+font-size:15px;
+}
+
+.titulo{
+font-weight:bold;
+}
+
+/* ESTADO */
+.estado{
+font-weight:bold;
+margin-top:10px;
+}
+
+/* RATING */
 .rating{
 font-size:22px;
 font-weight:bold;
 margin:10px 0;
 }
 
-#estado{
-font-weight:bold;
-margin:10px 0;
-}
-
+/* BOTÓN */
 button{
-background:#2f6f8f;
+background:#2c5d73;
 color:white;
 border:none;
 padding:15px;
@@ -59,7 +80,8 @@ transition:0.3s;
 }
 
 button:hover{
-background:#24596f;
+background:#1f4557;
+transform:scale(1.05);
 }
 
 </style>
@@ -67,23 +89,25 @@ background:#24596f;
 
 <body>
 
+<img src="logo.png" class="logo">
+
 <h2>Perfil del asociado</h2>
 
 <div class="card">
 
-<img id="foto" src="">
+<img id="foto" src="https://via.placeholder.com/120">
 
 <h2 id="nombre">Cargando...</h2>
 
+<div class="info">
 <p id="matricula"></p>
 <p id="direccion"></p>
 <p id="telefono"></p>
 <p id="categoria"></p>
-<p id="estado"></p>
+<p id="estado" class="estado"></p>
+</div>
 
 <div id="rating" class="rating">Cargando...</div>
-
-<div id="estado"></div>
 
 <br>
 
@@ -102,7 +126,7 @@ setInterval(() => location.reload(), 60000);
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
-// 🔴 CAMBIAR ESTE LINK POR TU CSV
+// CSV
 const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTYtWCGqYY1syX0O952yzEl9YIA1fe7ORQLpDIiWz4s51ySBD_grl9iRbdsAkXzv68hJJKfVkTPmzGJ/pub?gid=0&single=true&output=csv";
 
 fetch(url)
@@ -116,32 +140,31 @@ for(let i=1;i<filas.length;i++){
 
 let columnas = filas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
 
-// ⚠️ AJUSTADO A TU BASE
-let trabajadorID = columnas[0].replaceAll('"',"").trim(); // ID
-let nombre = columnas[1].replaceAll('"',"").trim(); // Nombre
+let trabajadorID = columnas[0].replaceAll('"',"").trim();
+let nombre = columnas[1].replaceAll('"',"").trim();
 let matricula = columnas[2].replaceAll('"',"").trim();
 let direccion = columnas[3].replaceAll('"',"").trim();
 let telefono = columnas[4].replaceAll('"',"").trim();
 let categoria = columnas[5].replaceAll('"',"").trim();
-let promedio = columnas[6].replaceAll('"',"").replace(",",".").trim(); // Promedio
-let cantidad = columnas[7].replaceAll('"',"").trim(); // Cantidad
-let formulario = columnas[8].replaceAll('"',"").trim(); // Link form
-let foto = columnas[9].replaceAll('"',"").trim(); // Foto
-let estado = columnas[10].replaceAll('"',"").trim(); // Estado
+let promedio = columnas[6].replaceAll('"',"").replace(",",".").trim();
+let cantidad = columnas[7].replaceAll('"',"").trim();
+let formulario = columnas[8].replaceAll('"',"").trim();
+let foto = columnas[9].replaceAll('"',"").trim();
+let estado = columnas[10].replaceAll('"',"").trim();
 
-if(trabajadorID.trim().replace(/^0+/, '') === id.trim().replace(/^0+/, '')){
+if(trabajadorID.replace(/^0+/, '') === id.replace(/^0+/, '')){
 
 encontrado = true;
 
-// nombre
+// datos
 document.getElementById("nombre").innerText = nombre;
 
-document.getElementById("matricula").innerText = "n.º Matrícula: " + matricula;
-document.getElementById("direccion").innerText = "Dirección: " + direccion;
-document.getElementById("telefono").innerText = "Teléfono: " + telefono;
-document.getElementById("categoria").innerText = "Categoría: " + categoria;
+document.getElementById("matricula").innerHTML = "<span class='titulo'>📌 Matrícula:</span> " + matricula;
+document.getElementById("direccion").innerHTML = "<span class='titulo'>📍 Dirección:</span> " + direccion;
+document.getElementById("telefono").innerHTML = "<span class='titulo'>📞 Teléfono:</span> " + telefono;
+document.getElementById("categoria").innerHTML = "<span class='titulo'>🏷️ Categoría:</span> " + categoria;
 
-
+// estado
 if(estado === "Vigente"){
   document.getElementById("estado").innerHTML = "🟢 Vigente";
   document.getElementById("estado").style.color = "green";
@@ -150,49 +173,34 @@ if(estado === "Vigente"){
   document.getElementById("estado").style.color = "red";
 }
 
-// promedio
+// rating
 if(promedio === "" || promedio === "0"){
 document.getElementById("rating").innerText = "Sin calificaciones";
 } else {
 let promedioNum = parseFloat(promedio);
-
 let promedioRedondeado = promedioNum.toFixed(2);
 
-document.getElementById("rating").innerText = 
+document.getElementById("rating").innerText =
 "⭐ " + promedioRedondeado + " / 5 (" + cantidad + " opiniones)";
-}
-
-
-if(estado === "Sancionado"){
-document.getElementById("estado").style.color = "red";
 }
 
 // botón
 document.getElementById("boton").href = formulario;
 
-
 // foto
 if(foto !== ""){
-document.getElementById("foto").src = foto;
-
-if(foto !== ""){
   document.getElementById("foto").src = foto;
-} else {
-  document.getElementById("foto").src = "https://via.placeholder.com/120";
-}
 }
 
 }
 
 }
 
-// si no encuentra
 if(!encontrado){
 document.body.innerHTML = "<h2>Trabajador no encontrado</h2>";
 }
 
 });
-
 
 </script>
 
