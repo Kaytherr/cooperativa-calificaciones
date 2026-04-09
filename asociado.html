@@ -75,6 +75,12 @@ background:#24596f;
 
 <h2 id="nombre">Cargando...</h2>
 
+<p id="matricula"></p>
+<p id="direccion"></p>
+<p id="telefono"></p>
+<p id="categoria"></p>
+<p id="estado"></p>
+
 <div id="rating" class="rating">Cargando...</div>
 
 <div id="estado"></div>
@@ -113,11 +119,15 @@ let columnas = filas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
 // ⚠️ AJUSTADO A TU BASE
 let trabajadorID = columnas[0].replaceAll('"',"").trim(); // ID
 let nombre = columnas[1].replaceAll('"',"").trim(); // Nombre
-let promedio = columnas[2].replaceAll('"',"").replace(",",".").trim(); // Promedio
-let cantidad = columnas[3].replaceAll('"',"").trim(); // Cantidad
-let formulario = columnas[4].replaceAll('"',"").trim(); // Link form
-let foto = columnas[5].replaceAll('"',"").trim(); // Foto
-let estado = columnas[6].replaceAll('"',"").trim(); // Estado
+let matricula = columnas[2].replaceAll('"',"").trim();
+let direccion = columnas[3].replaceAll('"',"").trim();
+let telefono = columnas[4].replaceAll('"',"").trim();
+let categoria = columnas[5].replaceAll('"',"").trim();
+let promedio = columnas[6].replaceAll('"',"").replace(",",".").trim(); // Promedio
+let cantidad = columnas[7].replaceAll('"',"").trim(); // Cantidad
+let formulario = columnas[8].replaceAll('"',"").trim(); // Link form
+let foto = columnas[9].replaceAll('"',"").trim(); // Foto
+let estado = columnas[10].replaceAll('"',"").trim(); // Estado
 
 if(trabajadorID.trim().replace(/^0+/, '') === id.trim().replace(/^0+/, '')){
 
@@ -125,6 +135,19 @@ encontrado = true;
 
 // nombre
 document.getElementById("nombre").innerText = nombre;
+
+document.getElementById("matricula").innerText = "Matrícula: " + matricula;
+document.getElementById("direccion").innerText = "Dirección: " + direccion;
+document.getElementById("telefono").innerText = "Tel: " + telefono;
+document.getElementById("categoria").innerText = "Categoría: " + categoria;
+
+if(estado === "Activo"){
+  document.getElementById("estado").innerHTML = "🟢 Vigente";
+  document.getElementById("estado").style.color = "green";
+} else {
+  document.getElementById("estado").innerHTML = "🔴 No vigente";
+  document.getElementById("estado").style.color = "red";
+}
 
 // promedio
 if(promedio === "" || promedio === "0"){
