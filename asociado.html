@@ -18,9 +18,22 @@ padding:20px;
 }
 
 /* LOGO */
-.logo{
-width:120px;
-margin-bottom:10px;
+.header{
+  width:100%;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.logo-header{
+  width:100px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.logo-header:hover{
+  transform:scale(1.05);
 }
 
 /* TARJETA */
@@ -89,7 +102,11 @@ transform:scale(1.05);
 
 <body>
 
-<img src="https://imgur.com/OFaePYp" class="logo">
+<div class="header">
+  <a href="index.html">
+    <img src="logo.png" class="logo-header">
+  </a>
+</div>
 
 <h2>Perfil del asociado</h2>
 
