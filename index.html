@@ -3,153 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cooperativa de Instaladores</title>
-
-<style>
-
-body{
-margin:0;
-font-family: Arial;
-background:#f4f4f4;
-}
-
-/* HEADER */    
-header{
-background:linear-gradient(135deg,#2f6f8f,#1d4e63);
-color:white;
-padding:60px 20px;
-text-align:center;
-}
-
-header h1{
-margin:0;
-font-size:40px;
-}
-
-header p{
-font-size:18px;
-}
-
-/* SECCIONES */
-section{
-padding:50px 20px;
-text-align:center;
-}
-
-/* SERVICIOS */
-.servicios{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.card{
-background:white;
-padding:25px;
-border-radius:15px;
-width:220px;
-box-shadow:0 4px 15px rgba(0,0,0,0.1);
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
-}
-
-/* BOTONES */
-button{
-background:#2f6f8f;
-color:white;
-border:none;
-padding:15px 20px;
-border-radius:10px;
-cursor:pointer;
-font-size:16px;
-transition:0.3s;
-}
-
-button:hover{
-background:#1d4e63;
-}
-
-/* FOOTER */
-footer{
-background:#222;
-color:white;
-padding:20px;
-text-align:center;
-}
-
-</style>
-
+<title>Inicio</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <nav style="background:white;padding:15px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
-  <h2 style="margin:0;color:#2f6f8f;">Cooperativa</h2>
-
-  <div>
-    <a href="#" style="margin:10px;text-decoration:none;color:black;">Inicio</a>
-    <a href="#" style="margin:10px;text-decoration:none;color:black;">Servicios</a>
-    <a href="#" style="margin:10px;text-decoration:none;color:black;">Contacto</a>
-  </div>
-</nav>
-
-
 <header>
-<h1>Cooperativa de Instaladores</h1>
-<p>Servicios profesionales con personal calificado y verificado</p>
+<div class="logo">
+<img src="FOTOS%20ID/logo.jpg">
+<span>C.I.O.S</span>
+</div>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="nosotros.html">Nosotros</a>
+<a href="novedades.html">Novedades</a>
+<a href="asociados.html">Asociados</a>
+<a href="contacto.html">Contacto</a>
+</nav>
 </header>
 
-<section style="background:#2f6f8f;color:white;padding:80px 20px;text-align:center;">
-  <h1>Soluciones profesionales</h1>
-  <p>Trabajadores calificados con sistema de verificación por QR</p>
-  <button>Contactar</button>
-</section>
+<main>
 
-<section>
-<h2>Quiénes somos</h2>
-<p>Somos una cooperativa dedicada a brindar soluciones de instalación y mantenimiento, garantizando calidad y confianza en cada trabajo.</p>
-</section>
+<h1>Bienvenidos</h1>
 
-<section>
-<h2>Servicios</h2>
-<div class="servicios">
-<div class="card">⚡ Electricidad</div>
-<div class="card">🚿 Plomería</div>
-<div class="card">🛠️ Mantenimiento</div>
+<div class="card">
+<p>Cooperativa de Instaladores Organizados de Santa Fe.</p>
+<p>Personal matriculado, profesional y verificado.</p>
 </div>
-</section>
 
-<section>
-<h2>Transparencia y confianza</h2>
-<p>Cada trabajador cuenta con un carnet con código QR que permite verificar su desempeño, historial y calificaciones en tiempo real.</p>
-</section>
+<div class="grid">
 
-<section>
-<h2>Reclamos</h2>
-<p>Si tuviste algún inconveniente con un servicio, podés realizar un reclamo.</p>
-<a href="#">
-<button>Realizar reclamo</button>
-</a>
-</section>
+<div class="card">
+<h2>Nosotros</h2>
+<p>Conocé nuestra historia, misión y valores.</p>
+<a class="btn" href="nosotros.html">Ingresar</a>
+</div>
 
-<section>
+<div class="card">
+<h2>Novedades</h2>
+<p>Últimos trabajos, alianzas y noticias.</p>
+<a class="btn" href="novedades.html">Ingresar</a>
+</div>
+
+<div class="card">
+<h2>Asociados</h2>
+<p>Listado oficial de trabajadores.</p>
+<a class="btn" href="asociados.html">Ingresar</a>
+</div>
+
+<div class="card">
 <h2>Contacto</h2>
-<p>Tel: 123456789</p>
-<p>Email: contacto@cooperativa.com</p>
-</section>
+<p>Comunicate con administración.</p>
+<a class="btn" href="contacto.html">Ingresar</a>
+</div>
 
-<a href="https://wa.me/549XXXXXXXXX" 
-style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px;border-radius:50%;text-decoration:none;font-size:20px;">
-💬
-</a>
+</div>
 
-<footer>
-<p>© 2026 Cooperativa de Instaladores</p>
-</footer>
+</main>
+
+<footer>© 2026 C.I.O.S</footer>
 
 </body>
 </html>
