@@ -25,6 +25,25 @@
 
 <main>
 
+<div class="slider">
+
+<div class="slide active">
+<img src="imagenes/obra1.jpg">
+<div class="texto">Trabajos Profesionales</div>
+</div>
+
+<div class="slide">
+<img src="imagenes/obra2.jpg">
+<div class="texto">Instaladores Matriculados</div>
+</div>
+
+<div class="slide">
+<img src="imagenes/obra3.jpg">
+<div class="texto">Compromiso y Calidad</div>
+</div>
+
+</div>
+
 <h1>Bienvenidos</h1>
 
 <div class="card">
@@ -63,6 +82,26 @@
 </main>
 
 <footer>© 2026 C.I.O.S</footer>
+
+<script>
+
+let slides = document.querySelectorAll(".slide");
+let actual = 0;
+
+setInterval(() => {
+
+slides[actual].classList.remove("active");
+
+actual++;
+if(actual >= slides.length){
+actual = 0;
+}
+
+slides[actual].classList.add("active");
+
+}, 4000);
+
+</script>
 
 </body>
 </html>
