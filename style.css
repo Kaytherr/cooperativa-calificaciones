@@ -148,14 +148,17 @@ background:rgba(0,0,0,0.45);
 color:white;
 border:none;
 font-size:30px;
-padding:12px 18px;
+width:55px;
+height:55px;
 cursor:pointer;
-border-radius:10px;
+border-radius:50%;
 transition:0.3s;
 z-index:999;
-pointer-events:auto;
+opacity:0;
+pointer-events:none;
 }
 
+/* posiciones */
 .prev{
 left:15px;
 }
@@ -164,6 +167,27 @@ left:15px;
 right:15px;
 }
 
+/* mostrar al pasar mouse */
+.slider:hover .prev,
+.slider:hover .next{
+opacity:1;
+pointer-events:auto;
+}
+
+/* hover */
 .prev:hover,.next:hover{
-background:rgba(0,0,0,0.7);
+background:rgba(0,0,0,0.75);
+transform:translateY(-50%) scale(1.08);
+}
+
+@media (max-width:768px){
+
+.prev,.next{
+opacity:1;
+pointer-events:auto;
+width:42px;
+height:42px;
+font-size:22px;
+}
+
 }
