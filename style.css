@@ -1,4 +1,4 @@
-// css pagina web
+/* css pagina web */
 
 *{
 margin:0;
@@ -138,7 +138,7 @@ font-size:28px;
 font-weight:bold;
 }
 
-// css botones
+/* css botones */
 
 .prev,.next{
 position:absolute;
