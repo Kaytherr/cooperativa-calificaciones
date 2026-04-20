@@ -91,7 +91,9 @@
 
 let slides = document.querySelectorAll(".slide");
 let actual = 0;
+let autoSlide;
 
+/* mostrar slide */
 function mostrarSlide(n){
 
 slides.forEach(s => s.classList.remove("active"));
@@ -105,17 +107,39 @@ slides[actual].classList.add("active");
 
 }
 
-setInterval(() => {
+/* autoplay */
+function iniciarAuto(){
+
+autoSlide = setInterval(() => {
 mostrarSlide(actual + 1);
 }, 4000);
 
+}
+
+/* pausa y reinicio */
+function reiniciarAuto(){
+
+clearInterval(autoSlide);
+
+setTimeout(() => {
+iniciarAuto();
+}, 6000); /* pausa 6 segundos */
+
+}
+
+/* botones */
 document.querySelector(".next").onclick = () => {
 mostrarSlide(actual + 1);
+reiniciarAuto();
 }
 
 document.querySelector(".prev").onclick = () => {
 mostrarSlide(actual - 1);
+reiniciarAuto();
 }
+
+/* iniciar */
+iniciarAuto();
 
 </script>
 
