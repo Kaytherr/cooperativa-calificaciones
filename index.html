@@ -40,6 +40,9 @@
 <div class="slide">
 <img src="FOTOS/foto3.jpg">
 <div class="texto">Compromiso y Calidad</div>
+
+<button class="prev">❮</button>
+<button class="next">❯</button>
 </div>
 
 </div>
@@ -88,18 +91,30 @@
 let slides = document.querySelectorAll(".slide");
 let actual = 0;
 
-setInterval(() => {
+function mostrarSlide(n){
 
-slides[actual].classList.remove("active");
+slides.forEach(s => s.classList.remove("active"));
 
-actual++;
-if(actual >= slides.length){
-actual = 0;
-}
+actual = n;
+
+if(actual >= slides.length) actual = 0;
+if(actual < 0) actual = slides.length - 1;
 
 slides[actual].classList.add("active");
 
+}
+
+setInterval(() => {
+mostrarSlide(actual + 1);
 }, 4000);
+
+document.querySelector(".next").onclick = () => {
+mostrarSlide(actual + 1);
+}
+
+document.querySelector(".prev").onclick = () => {
+mostrarSlide(actual - 1);
+}
 
 </script>
 
