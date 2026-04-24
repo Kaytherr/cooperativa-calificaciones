@@ -91,33 +91,61 @@
 
 let slides = document.querySelectorAll(".slide");
 let actual = 0;
+let intervalo;
 
+/* mostrar slide */
 function mostrarSlide(n){
 
-slides.forEach(s => s.classList.remove("active"));
+slides.forEach(slide => slide.classList.remove("active"));
 
+if(n >= slides.length){
+actual = 0;
+}
+else if(n < 0){
+actual = slides.length - 1;
+}
+else{
 actual = n;
-
-if(actual >= slides.length) actual = 0;
-if(actual < 0) actual = slides.length - 1;
+}
 
 slides[actual].classList.add("active");
 
 }
 
-setInterval(() => {
-mostrarSlide(actual + 1);
-}, 7000);
+/* autoplay */
+function iniciarSlider(){
 
-document.querySelector(".next").onclick = () => {
+intervalo = setInterval(() => {
 mostrarSlide(actual + 1);
+}, 4000);
+
 }
 
-document.querySelector(".prev").onclick = () => {
+/* reiniciar con pausa */
+function pausarSlider(){
+
+clearInterval(intervalo);
+
+setTimeout(() => {
+iniciarSlider();
+}, 5000);
+
+}
+
+/* botones */
+document.querySelector(".next").addEventListener("click", () => {
+mostrarSlide(actual + 1);
+pausarSlider();
+});
+
+document.querySelector(".prev").addEventListener("click", () => {
 mostrarSlide(actual - 1);
-}
+pausarSlider();
+});
+
+/* arrancar */
+iniciarSlider();
 
 </script>
-
 </body>
 </html>
