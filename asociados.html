@@ -95,10 +95,14 @@ text-decoration:none;
 display:block !important;
 }
 
+
 .lista .card-asoc{
 display:grid;
 grid-template-columns:80px 1fr auto;
 align-items:center;
+margin-bottom:12px;
+padding:18px;
+border-radius:14px;
 }
 
 @media(max-width:768px){
@@ -120,6 +124,32 @@ align-items:center;
 .card-asoc img{
 width:110px;
 height:110px;
+}
+
+#paginacion{
+margin-top:25px;
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+#paginacion button{
+padding:10px 14px;
+border:none;
+background:#1f4f68;
+color:white;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+#paginacion button:hover{
+background:#16394b;
+}
+
+#paginacion .activo{
+background:#0f2b39;
 }
 
 }
@@ -163,6 +193,8 @@ height:110px;
 
 <div id="contenedor"></div>
 
+<div id="paginacion"></div>
+
 </main>
 
 <footer>© 2026 C.I.O.S</footer>
@@ -172,6 +204,8 @@ height:110px;
 const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTYtWCGqYY1syX0O952yzEl9YIA1fe7ORQLpDIiWz4s51ySBD_grl9iRbdsAkXzv68hJJKfVkTPmzGJ/pub?gid=0&single=true&output=csv";
 let asociados = [];
 let vistaLista = false;
+let paginaActual = 1;
+let porPagina = 8;
 
 fetch(url)
 .then(r => r.text())
@@ -230,41 +264,41 @@ if(orden=="rating"){
 lista.sort((a,b)=>b.rating-a.rating);
 }
 
+let inicio = (paginaActual - 1) * porPagina;
+let fin = inicio + porPagina;
+
+let totalPaginas = Math.ceil(lista.length / porPagina);
+
+let mostrar = lista.slice(inicio, fin);
+
 let html = "";
 
-lista.forEach(a => {
-
-html += `
-<div class="card-asoc">
-
-<img src="${a.foto || 'https://via.placeholder.com/100'}">
-
-<div class="info">
-
-<h3>${a.nombre}</h3>
-
-<p><b>Matrícula:</b> ${a.matricula}</p>
-<p><b>Teléfono:</b> ${a.telefono}</p>
-<p><b>Categoría:</b> ${a.categoria}</p>
-
-<p class="rating">⭐ ${a.rating.toFixed(2)} (${a.cantidad})</p>
-
-<p class="estado ${a.estado=='Vigente' ? 'vigente':'novigente'}">
-${a.estado}
-</p>
-
-<a class="verperfil" href="empleado.html?id=${a.id}">
-Ver perfil
-</a>
-
-</div>
-
-</div>
-`;
-
+mostrar.forEach(a => {
 });
 
 document.getElementById("contenedor").innerHTML = html;
+
+let pagHTML = "";
+
+if(totalPaginas > 1){
+
+if(paginaActual > 1){
+pagHTML += `<button onclick="cambiarPagina(${paginaActual-1})">◀</button>`;
+}
+
+for(let i=1;i<=totalPaginas;i++){
+
+pagHTML += `<button class="${i==paginaActual ? 'activo':''}" onclick="cambiarPagina(${i})">${i}</button>`;
+
+}
+
+if(paginaActual < totalPaginas){
+pagHTML += `<button onclick="cambiarPagina(${paginaActual+1})">▶</button>`;
+}
+
+}
+
+document.getElementById("paginacion").innerHTML = pagHTML;
 
 if(vistaLista){
 document.getElementById("contenedor").classList.add("lista");
@@ -279,6 +313,11 @@ document.getElementById("ordenar").addEventListener("change", render);
 
 function cambiarVista(){
 vistaLista = !vistaLista;
+render();
+}
+
+function cambiarPagina(n){
+paginaActual = n;
 render();
 }
 
