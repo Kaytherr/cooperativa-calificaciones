@@ -27,8 +27,6 @@
 
 <div class="slider">
 
-<div class="barra"></div>
-
 <div class="slide active">
 <img src="FOTOS/foto1.png">
 <div class="texto">Trabajos Profesionales</div>
@@ -94,9 +92,6 @@
 let slides = document.querySelectorAll(".slide");
 let actual = 0;
 let intervalo;
-let progreso;
-let barra = document.querySelector(".barra");
-let tiempo = 4000;
 
 /* mostrar slide */
 function mostrarSlide(n){
@@ -117,67 +112,38 @@ slides[actual].classList.add("active");
 
 }
 
-/* barra */
-function iniciarBarra(){
-
-clearInterval(progreso);
-
-barra.style.width = "0%";
-
-let ancho = 0;
-
-progreso = setInterval(() => {
-
-ancho += 2.5; /* 100 / 40 pasos */
-
-barra.style.width = ancho + "%";
-
-if(ancho >= 100){
-clearInterval(progreso);
-}
-
-}, tiempo / 40);
-
-}
-
 /* autoplay */
 function iniciarSlider(){
 
-iniciarBarra();
-
 intervalo = setInterval(() => {
-
 mostrarSlide(actual + 1);
-iniciarBarra();
-
-}, tiempo);
+}, 4000);
 
 }
 
-/* pausa */
+/* reiniciar con pausa */
 function pausarSlider(){
 
 clearInterval(intervalo);
-clearInterval(progreso);
 
 setTimeout(() => {
 iniciarSlider();
-}, 6000);
+}, 5000);
 
 }
 
 /* botones */
-document.querySelector(".next").onclick = () => {
+document.querySelector(".next").addEventListener("click", () => {
 mostrarSlide(actual + 1);
 pausarSlider();
-}
+});
 
-document.querySelector(".prev").onclick = () => {
+document.querySelector(".prev").addEventListener("click", () => {
 mostrarSlide(actual - 1);
 pausarSlider();
-}
+});
 
-/* iniciar */
+/* arrancar */
 iniciarSlider();
 
 </script>
