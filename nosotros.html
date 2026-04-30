@@ -6,130 +6,6 @@
 <title>Nosotros</title>
 <link rel="stylesheet" href="style.css">
 
-<style>
-
-/* GALERIA MODERNA */
-.subtitulo{
-color:#666;
-margin-bottom:15px;
-}
-
-.galeria{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:15px;
-}
-
-.img-box{
-overflow:hidden;
-border-radius:15px;
-opacity:0;
-transform:translateY(30px);
-transition:0.6s;
-}
-
-.img-box img{
-width:100%;
-height:220px;
-object-fit:cover;
-transition:0.4s;
-cursor:pointer;
-}
-
-.img-box:hover img{
-transform:scale(1.1);
-}
-
-.img-box.visible{
-opacity:1;
-transform:translateY(0);
-}
-
-/* MODAL */
-.modal{
-display:none;
-position:fixed;
-z-index:999;
-padding-top:80px;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-}
-
-.modal-img{
-display:block;
-margin:auto;
-max-width:90%;
-max-height:80%;
-border-radius:10px;
-}
-
-.cerrar{
-position:absolute;
-top:20px;
-right:35px;
-color:white;
-font-size:40px;
-cursor:pointer;
-}
-
-/* DATOS CLAVE */
-.dato{
-text-align:center;
-}
-
-.dato h2{
-font-size:40px;
-color:#1f4f68;
-margin-bottom:5px;
-}
-
-.dato p{
-font-size:18px;
-color:#555;
-}
-
-/* PASOS */
-.pasos{
-margin-top:10px;
-padding-left:20px;
-}
-
-.pasos li{
-margin:8px 0;
-font-size:18px;
-}
-
-/* CTA */
-.cta{
-text-align:center;
-background:#1f4f68;
-color:white;
-}
-
-.cta h2{
-color:white;
-}
-
-.cta p{
-color:#dbe7ee;
-margin-bottom:15px;
-}
-
-.cta .btn{
-background:white;
-color:#1f4f68;
-font-weight:bold;
-}
-
-.cta .btn:hover{
-background:#e6e6e6;
-}
-
-</style>
-
 </head>
 
 <body>
@@ -153,7 +29,7 @@ background:#e6e6e6;
 
 <h1>Sobre Nosotros</h1>
 
-<div class="card">
+<div class="card animar">
 <h2>¿Quiénes somos?</h2>
 
 <p>
@@ -169,7 +45,7 @@ para todos nuestros clientes.
 
 <div class="grid">
 
-<div class="card">
+<div class="card animar">
 <h2>Misión</h2>
 <p>
 Brindar servicios profesionales de instalación con altos estándares de calidad,
@@ -177,7 +53,7 @@ seguridad y responsabilidad.
 </p>
 </div>
 
-<div class="card">
+<div class="card animar">
 <h2>Visión</h2>
 <p>
 Ser una cooperativa referente en la región, reconocida por su compromiso,
@@ -187,7 +63,7 @@ transparencia y excelencia en el trabajo.
 
 </div>
 
-<div class="card">
+<div class="card animar">
 
 <h2>Valores</h2>
 
@@ -203,22 +79,22 @@ transparencia y excelencia en el trabajo.
 
 <div class="grid">
 
-<div class="card">
+<div class="card animar">
 <h2>Personal Matriculado</h2>
 <p>Todos nuestros asociados cuentan con matrícula habilitante.</p>
 </div>
 
-<div class="card">
+<div class="card animar">
 <h2>Calificaciones Reales</h2>
 <p>Podés ver la reputación de cada trabajador.</p>
 </div>
 
-<div class="card">
+<div class="card animar">
 <h2>Confianza</h2>
 <p>Formamos parte de una organización seria y controlada.</p>
 </div>
 
-<div class="card">
+<div class="card animar">
 <h2>Transparencia</h2>
 <p>Información pública y verificable para todos los usuarios.</p>
 </div>
@@ -226,7 +102,7 @@ transparencia y excelencia en el trabajo.
 </div>
 
 <!-- 🔥 GALERIA MODERNA -->
-<div class="card">
+<div class="card animar">
 
 <h2>Nuestros trabajos</h2>
 <p class="subtitulo">Algunos trabajos realizados por nuestros asociados</p>
@@ -269,7 +145,7 @@ transparencia y excelencia en el trabajo.
 
 
 <!-- ⚙️ COMO TRABAJAMOS -->
-<div class="card">
+<div class="card animar">
 
 <h2>¿Cómo trabajamos?</h2>
 
@@ -284,7 +160,7 @@ transparencia y excelencia en el trabajo.
 
 
 <!-- 🛡️ GARANTIA -->
-<div class="card">
+<div class="card animar">
 
 <h2>Garantía y respaldo</h2>
 
@@ -354,6 +230,28 @@ imgGrande.src = img.src;
 document.querySelector(".cerrar").onclick = () => {
 modal.style.display = "none";
 };
+
+</script>
+
+<script>
+
+const elementos = document.querySelectorAll(".animar");
+
+window.addEventListener("scroll", () => {
+
+let trigger = window.innerHeight * 0.85;
+
+elementos.forEach(el => {
+
+let top = el.getBoundingClientRect().top;
+
+if(top < trigger){
+el.classList.add("visible");
+}
+
+});
+
+});
 
 </script>
 
