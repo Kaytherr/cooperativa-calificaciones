@@ -386,3 +386,54 @@ border-radius:16px;
 }
 
 }
+
+/* CONTACTO */
+
+.contacto-box{
+text-align:center;
+}
+
+.contacto-box .btn{
+display:block;
+margin:12px auto;
+max-width:300px;
+font-size:18px;
+padding:14px;
+}
+
+/* COLORES */
+.whatsapp{
+background:#25D366;
+}
+
+.tel{
+background:#1f4f68;
+}
+
+.mail{
+background:#444;
+}
+
+/* HOVER */
+.whatsapp:hover{
+background:#1ebe5d;
+}
+
+.tel:hover{
+background:#16394b;
+}
+
+.mail:hover{
+background:#222;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.contacto-box .btn{
+width:100%;
+font-size:20px;
+padding:18px;
+}
+
+}
