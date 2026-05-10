@@ -500,3 +500,9 @@ height:34px;
 }
 
 }
+
+.wsp-icon{
+width:38px !important;
+height:38px !important;
+object-fit:contain;
+}
