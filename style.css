@@ -437,3 +437,66 @@ padding:18px;
 }
 
 }
+
+/* WHATSAPP FLOTANTE */
+
+.wsp-float{
+position:fixed;
+width:65px;
+height:65px;
+bottom:25px;
+right:25px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+z-index:999;
+transition:.3s;
+animation:flotar 2s infinite;
+}
+
+.wsp-float img{
+width:38px;
+height:38px;
+}
+
+.wsp-float:hover{
+transform:scale(1.1);
+background:#1ebe5d;
+}
+
+/* ANIMACION */
+@keyframes flotar{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-5px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+/* CELULAR */
+@media(max-width:768px){
+
+.wsp-float{
+width:60px;
+height:60px;
+bottom:20px;
+right:20px;
+}
+
+.wsp-float img{
+width:34px;
+height:34px;
+}
+
+}
