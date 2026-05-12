@@ -506,3 +506,9 @@ width:38px !important;
 height:38px !important;
 object-fit:contain;
 }
+
+.noticia{
+text-decoration:none;
+color:inherit;
+display:block;
+}
