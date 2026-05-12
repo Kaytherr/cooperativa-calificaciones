@@ -1,3 +1,6 @@
+# novedades.html
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,14 +11,21 @@
 
 <style>
 
-/* HERO */
 .novedad-principal{
 position:relative;
+display:block;
 height:420px;
 border-radius:25px;
 overflow:hidden;
 margin-bottom:40px;
 box-shadow:0 10px 25px rgba(0,0,0,.15);
+text-decoration:none;
+color:white;
+transition:.3s;
+}
+
+.novedad-principal:hover{
+transform:scale(1.01);
 }
 
 .novedad-principal img{
@@ -31,7 +41,6 @@ left:0;
 width:100%;
 padding:35px;
 background:linear-gradient(to top, rgba(0,0,0,.8), transparent);
-color:white;
 }
 
 .overlay h2{
@@ -45,7 +54,6 @@ font-size:18px;
 max-width:700px;
 }
 
-/* GRID */
 .novedades-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -58,6 +66,9 @@ border-radius:20px;
 overflow:hidden;
 box-shadow:0 8px 18px rgba(0,0,0,.08);
 transition:.3s;
+text-decoration:none;
+color:inherit;
+display:block;
 }
 
 .noticia:hover{
@@ -91,7 +102,6 @@ font-size:16px;
 line-height:1.5;
 }
 
-/* MOBILE */
 @media(max-width:768px){
 
 .novedad-principal{
@@ -140,7 +150,6 @@ height:200px;
 
 <h1>Novedades</h1>
 
-<!-- 🔥 NOTICIA PRINCIPAL -->
 <a href="noticia-principal.html" class="novedad-principal">
 
 <img src="FOTOS/novedad1.jpg">
@@ -157,80 +166,329 @@ junto a profesionales matriculados y verificados.
 
 </a>
 
-</div>
-
-<!-- 📰 TARJETAS -->
 <div class="novedades-grid">
 
 <a href="noticia1.html" class="noticia">
-
 <img src="FOTOS/novedad2.jpg">
-
 <div class="noticia-contenido">
-
 <div class="fecha">10 Mayo 2026</div>
-
 <h3>Nuevos asociados</h3>
-
 <p>
 Se incorporaron nuevos profesionales matriculados
 a la cooperativa.
 </p>
-
 </div>
-
 </a>
 
-<div class="noticia">
-
+<a href="noticia2.html" class="noticia">
 <img src="FOTOS/novedad3.jpg">
-
 <div class="noticia-contenido">
-
 <div class="fecha">5 Mayo 2026</div>
-
 <h3>Trabajos en Santa Fe</h3>
-
 <p>
 Continúan los trabajos e instalaciones
 realizadas por asociados verificados.
 </p>
-
 </div>
+</a>
 
-</div>
-
-<div class="noticia">
-
+<a href="noticia3.html" class="noticia">
 <img src="FOTOS/novedad4.jpg">
-
 <div class="noticia-contenido">
-
 <div class="fecha">1 Mayo 2026</div>
-
 <h3>Compromiso y calidad</h3>
-
 <p>
 Seguimos apostando por la seguridad,
 la transparencia y el profesionalismo.
 </p>
-
 </div>
-
-</div>
+</a>
 
 </div>
 
 </main>
 
 <footer>© 2026 C.I.O.S</footer>
-<!-- BOTON WHATSAPP -->
+
 <a
-href="https://wa.me/549XXXXXXXXXX?text=Hola,%20quiero%20consultar%20por%20un%20servicio"
+href="https://wa.me/549XXXXXXXXXX"
 class="wsp-float"
 target="_blank"
 >
-<img class="wsp-icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+💬
 </a>
+
 </body>
 </html>
+```
+
+---
+
+# noticia-principal.html
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuevos trabajos realizados</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<div class="logo">
+<img src="FOTOS/logo.jpg">
+<span>C.I.O.S</span>
+</div>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="nosotros.html">Nosotros</a>
+<a href="novedades.html">Novedades</a>
+<a href="asociados.html">Asociados</a>
+<a href="contacto.html">Contacto</a>
+</nav>
+</header>
+
+<main>
+
+<div class="hero-noticia">
+<img src="FOTOS/novedad1.jpg">
+</div>
+
+<div class="contenido-noticia card">
+<div class="fecha">15 Mayo 2026</div>
+<h1>Nuevos trabajos realizados</h1>
+
+<p>
+La cooperativa continúa desarrollando trabajos junto a profesionales matriculados y verificados.
+</p>
+
+<p>
+Estas tareas fueron realizadas bajo estándares de calidad y seguridad, reafirmando el compromiso con los clientes.
+</p>
+
+<a class="btn" href="novedades.html">← Volver</a>
+</div>
+
+</main>
+
+<footer>© 2026 C.I.O.S</footer>
+
+</body>
+</html>
+```
+
+---
+
+# noticia1.html
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuevos asociados</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<div class="logo">
+<img src="FOTOS/logo.jpg">
+<span>C.I.O.S</span>
+</div>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="nosotros.html">Nosotros</a>
+<a href="novedades.html">Novedades</a>
+<a href="asociados.html">Asociados</a>
+<a href="contacto.html">Contacto</a>
+</nav>
+</header>
+
+<main>
+
+<div class="hero-noticia">
+<img src="FOTOS/novedad2.jpg">
+</div>
+
+<div class="contenido-noticia card">
+<div class="fecha">10 Mayo 2026</div>
+<h1>Nuevos asociados</h1>
+
+<p>
+Se incorporaron nuevos profesionales matriculados a la cooperativa.
+</p>
+
+<p>
+Esto permite ampliar la capacidad de trabajo y mejorar la atención para los clientes.
+</p>
+
+<a class="btn" href="novedades.html">← Volver</a>
+</div>
+
+</main>
+
+<footer>© 2026 C.I.O.S</footer>
+
+</body>
+</html>
+```
+
+---
+
+# noticia2.html
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trabajos en Santa Fe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<div class="logo">
+<img src="FOTOS/logo.jpg">
+<span>C.I.O.S</span>
+</div>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="nosotros.html">Nosotros</a>
+<a href="novedades.html">Novedades</a>
+<a href="asociados.html">Asociados</a>
+<a href="contacto.html">Contacto</a>
+</nav>
+</header>
+
+<main>
+
+<div class="hero-noticia">
+<img src="FOTOS/novedad3.jpg">
+</div>
+
+<div class="contenido-noticia card">
+<div class="fecha">5 Mayo 2026</div>
+<h1>Trabajos en Santa Fe</h1>
+
+<p>
+Continúan los trabajos e instalaciones realizadas por asociados verificados.
+</p>
+
+<p>
+La cooperativa mantiene su compromiso con la calidad y la seguridad en cada servicio.
+</p>
+
+<a class="btn" href="novedades.html">← Volver</a>
+</div>
+
+</main>
+
+<footer>© 2026 C.I.O.S</footer>
+
+</body>
+</html>
+```
+
+---
+
+# noticia3.html
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compromiso y calidad</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<div class="logo">
+<img src="FOTOS/logo.jpg">
+<span>C.I.O.S</span>
+</div>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="nosotros.html">Nosotros</a>
+<a href="novedades.html">Novedades</a>
+<a href="asociados.html">Asociados</a>
+<a href="contacto.html">Contacto</a>
+</nav>
+</header>
+
+<main>
+
+<div class="hero-noticia">
+<img src="FOTOS/novedad4.jpg">
+</div>
+
+<div class="contenido-noticia card">
+<div class="fecha">1 Mayo 2026</div>
+<h1>Compromiso y calidad</h1>
+
+<p>
+La cooperativa continúa apostando por la transparencia, la seguridad y el profesionalismo.
+</p>
+
+<p>
+Cada trabajo es realizado bajo estándares de calidad y supervisión.
+</p>
+
+<a class="btn" href="novedades.html">← Volver</a>
+</div>
+
+</main>
+
+<footer>© 2026 C.I.O.S</footer>
+
+</body>
+</html>
+```
+
+---
+
+# IMPORTANTE
+
+Agregá esto a tu style.css para las páginas de noticias:
+
+```css
+.hero-noticia{
+width:100%;
+height:450px;
+border-radius:25px;
+overflow:hidden;
+margin-bottom:30px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.hero-noticia img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.contenido-noticia{
+line-height:1.8;
+}
+
+@media(max-width:768px){
+
+.hero-noticia{
+height:260px;
+}
+
+}
+```
