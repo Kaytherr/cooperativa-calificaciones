@@ -5,12 +5,125 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Novedades</title>
 <link rel="stylesheet" href="style.css">
+
+<style>
+
+/* HERO */
+.novedad-principal{
+position:relative;
+height:420px;
+border-radius:25px;
+overflow:hidden;
+margin-bottom:40px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.novedad-principal img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.overlay{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+padding:35px;
+background:linear-gradient(to top, rgba(0,0,0,.8), transparent);
+color:white;
+}
+
+.overlay h2{
+font-size:38px;
+margin-bottom:10px;
+color:white;
+}
+
+.overlay p{
+font-size:18px;
+max-width:700px;
+}
+
+/* GRID */
+.novedades-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.noticia{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 8px 18px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.noticia:hover{
+transform:translateY(-5px);
+}
+
+.noticia img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.noticia-contenido{
+padding:20px;
+}
+
+.fecha{
+font-size:14px;
+color:#777;
+margin-bottom:10px;
+}
+
+.noticia h3{
+color:#1f4f68;
+margin-bottom:10px;
+font-size:24px;
+}
+
+.noticia p{
+font-size:16px;
+line-height:1.5;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.novedad-principal{
+height:300px;
+}
+
+.overlay{
+padding:20px;
+}
+
+.overlay h2{
+font-size:28px;
+}
+
+.overlay p{
+font-size:16px;
+}
+
+.noticia img{
+height:200px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
 <header>
 <div class="logo">
-<img src="FOTOS%20ID/logo.jpg">
+<img src="FOTOS/logo.jpg">
 <span>C.I.O.S</span>
 </div>
 
@@ -27,19 +140,83 @@
 
 <h1>Novedades</h1>
 
-<div class="card">
-<h2>Nuevo Convenio</h2>
-<p>Se realizó una nueva alianza estratégica para beneficios de asociados.</p>
+<!-- 🔥 NOTICIA PRINCIPAL -->
+<div class="novedad-principal">
+
+<img src="FOTOS/novedad1.jpg">
+
+<div class="overlay">
+<h2>Nuevos trabajos realizados</h2>
+
+<p>
+La cooperativa continúa creciendo y realizando nuevos trabajos
+junto a profesionales matriculados y verificados.
+</p>
+
 </div>
 
-<div class="card">
-<h2>Últimos Trabajos</h2>
-<p>Finalización de nuevas instalaciones en distintos sectores de Santa Fe.</p>
 </div>
 
-<div class="card">
-<h2>Nuevos Integrantes</h2>
-<p>Este mes se sumaron nuevos profesionales matriculados.</p>
+<!-- 📰 TARJETAS -->
+<div class="novedades-grid">
+
+<div class="noticia">
+
+<img src="FOTOS/novedad2.jpg">
+
+<div class="noticia-contenido">
+
+<div class="fecha">10 Mayo 2026</div>
+
+<h3>Nuevos asociados</h3>
+
+<p>
+Se incorporaron nuevos profesionales matriculados
+a la cooperativa.
+</p>
+
+</div>
+
+</div>
+
+<div class="noticia">
+
+<img src="FOTOS/novedad3.jpg">
+
+<div class="noticia-contenido">
+
+<div class="fecha">5 Mayo 2026</div>
+
+<h3>Trabajos en Santa Fe</h3>
+
+<p>
+Continúan los trabajos e instalaciones
+realizadas por asociados verificados.
+</p>
+
+</div>
+
+</div>
+
+<div class="noticia">
+
+<img src="FOTOS/novedad4.jpg">
+
+<div class="noticia-contenido">
+
+<div class="fecha">1 Mayo 2026</div>
+
+<h3>Compromiso y calidad</h3>
+
+<p>
+Seguimos apostando por la seguridad,
+la transparencia y el profesionalismo.
+</p>
+
+</div>
+
+</div>
+
 </div>
 
 </main>
