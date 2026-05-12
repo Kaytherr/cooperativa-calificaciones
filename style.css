@@ -512,3 +512,14 @@ text-decoration:none;
 color:inherit;
 display:block;
 }
+
+.novedad-principal{
+display:block;
+text-decoration:none;
+color:white;
+transition:.3s;
+}
+
+.novedad-principal:hover{
+transform:scale(1.01);
+}
