@@ -68,6 +68,8 @@ height:115px;
 border-radius:20px;
 object-fit:cover;
 flex-shrink:0;
+background:#f1f1f1;
+border:1px solid #eee;
 }
 
 .info{
@@ -295,19 +297,27 @@ text-align:center;
 
 <body>
 
-<header>
-<div class="logo">
+<header class="header">
+
+<a href="index.html" class="logo">
 <img src="FOTOS/logo.jpg">
 <span>C.I.O.S</span>
-</div>
+</a>
 
-<nav>
+<nav id="nav">
+
 <a href="index.html">Inicio</a>
 <a href="nosotros.html">Nosotros</a>
 <a href="novedades.html">Novedades</a>
 <a href="asociados.html">Asociados</a>
 <a href="contacto.html">Contacto</a>
+
 </nav>
+
+<div class="menu-btn" id="menuBtn">
+☰
+</div>
+
 </header>
 
 <main>
@@ -358,6 +368,10 @@ const filas = data.trim().split("\n");
 for(let i=1;i<filas.length;i++){
 
 let c = filas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+
+if(!c[1] || c[1].trim() == ""){
+continue;
+}
 
 asociados.push({
 
@@ -426,7 +440,11 @@ html += `
 <div class="card-asoc"
 onclick="window.location.href='empleado.html?id=${a.id}'">
 
-<img src="${a.foto || 'https://via.placeholder.com/100'}">
+<img
+src="${a.foto && a.foto.startsWith('http')
+? a.foto
+: 'FOTOS/default-user.jpg'}"
+>
 
 <div class="info">
 
@@ -606,5 +624,15 @@ target="_blank"
 src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
+<script>
+
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("nav");
+
+menuBtn.onclick = () => {
+nav.classList.toggle("active");
+}
+
+</script>
 </body>
 </html>
