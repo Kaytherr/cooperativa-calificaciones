@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inicio</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
@@ -33,7 +35,9 @@
 
 <main>
 
-<div class="slider">
+<!-- SLIDER -->
+
+<div class="slider animado">
 
 <div class="slide active">
 <img src="FOTOS/foto1.png">
@@ -50,18 +54,30 @@
 <div class="texto">Compromiso y Calidad</div>
 </div>
 
-<!-- BOTONES AFUERA -->
 <button class="prev">❮</button>
 <button class="next">❯</button>
 
 </div>
 
+<!-- BIENVENIDA -->
+
+<section class="animado">
+
 <h1>Bienvenidos</h1>
 
 <div class="card">
-<p>Cooperativa de Instaladores Organizados de Santa Fe.</p>
-<p>Personal matriculado, profesional y verificado.</p>
+<p>
+Cooperativa de Instaladores Organizados de Santa Fe.
+</p>
+
+<p>
+Personal matriculado, profesional y verificado.
+</p>
 </div>
+
+</section>
+
+<!-- ESTADISTICAS -->
 
 <section class="stats animado">
 
@@ -87,34 +103,36 @@
 
 </section>
 
+<!-- POR QUE -->
+
 <section class="porque animado">
 
 <h1>¿Por qué elegirnos?</h1>
 
 <div class="grid">
 
-<div class="card ventaja">
+<div class="card ventaja animado">
 <h2>✔ Matriculados</h2>
 <p>
 Todos nuestros asociados cuentan con matrícula habilitante.
 </p>
 </div>
 
-<div class="card ventaja">
+<div class="card ventaja animado">
 <h2>🛡 Verificados</h2>
 <p>
 Información pública y trabajadores verificados.
 </p>
 </div>
 
-<div class="card ventaja">
+<div class="card ventaja animado">
 <h2>⭐ Reputación real</h2>
 <p>
 Sistema transparente de calificaciones.
 </p>
 </div>
 
-<div class="card ventaja">
+<div class="card ventaja animado">
 <h2>🤝 Confianza</h2>
 <p>
 Compromiso profesional y atención responsable.
@@ -124,6 +142,8 @@ Compromiso profesional y atención responsable.
 </div>
 
 </section>
+
+<!-- CTA -->
 
 <section class="cta animado">
 
@@ -139,13 +159,16 @@ Ver asociados
 
 </section>
 
+<!-- NOVEDADES -->
+
 <section class="inicio-news animado">
 
 <h1>Últimas novedades</h1>
 
 <div class="grid">
 
-<a href="noticia-principal.html" class="mini-news card">
+<a href="noticia-principal.html" class="mini-news card animado">
+
 <img src="FOTOS/novedad1.jpg">
 
 <h3>Nuevos trabajos realizados</h3>
@@ -156,7 +179,8 @@ La cooperativa continúa creciendo junto a profesionales matriculados.
 
 </a>
 
-<a href="noticia1.html" class="mini-news card">
+<a href="noticia1.html" class="mini-news card animado">
+
 <img src="FOTOS/novedad2.jpg">
 
 <h3>Nuevos asociados</h3>
@@ -173,15 +197,42 @@ Se incorporaron nuevos trabajadores verificados.
 
 </main>
 
-<footer>© 2026 C.I.O.S</footer>
+<footer>
+© 2026 C.I.O.S
+</footer>
+
+<!-- WHATSAPP -->
+
+<a
+href="https://wa.me/549XXXXXXXXXX?text=Hola,%20quiero%20consultar%20por%20un%20servicio"
+class="wsp-float"
+target="_blank"
+>
+<img
+class="wsp-icon"
+src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+>
+</a>
+
+<!-- SCRIPT GENERAL -->
 
 <script>
+
+/* MENU */
+
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("nav");
+
+menuBtn.onclick = () => {
+nav.classList.toggle("active");
+}
+
+/* SLIDER */
 
 let slides = document.querySelectorAll(".slide");
 let actual = 0;
 let intervalo;
 
-/* mostrar slide */
 function mostrarSlide(n){
 
 slides.forEach(slide => slide.classList.remove("active"));
@@ -200,7 +251,6 @@ slides[actual].classList.add("active");
 
 }
 
-/* autoplay */
 function iniciarSlider(){
 
 intervalo = setInterval(() => {
@@ -209,7 +259,6 @@ mostrarSlide(actual + 1);
 
 }
 
-/* reiniciar con pausa */
 function pausarSlider(){
 
 clearInterval(intervalo);
@@ -220,7 +269,6 @@ iniciarSlider();
 
 }
 
-/* botones */
 document.querySelector(".next").addEventListener("click", () => {
 mostrarSlide(actual + 1);
 pausarSlider();
@@ -231,28 +279,33 @@ mostrarSlide(actual - 1);
 pausarSlider();
 });
 
-/* arrancar */
 iniciarSlider();
 
-</script>
+/* ANIMACIONES */
 
-<!-- BOTON WHATSAPP -->
-<a
-href="https://wa.me/549XXXXXXXXXX?text=Hola,%20quiero%20consultar%20por%20un%20servicio"
-class="wsp-float"
-target="_blank"
->
-<img class="wsp-icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-</a>
-<script>
+const animados = document.querySelectorAll(".animado");
 
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.getElementById("nav");
+function mostrarScroll(){
 
-menuBtn.onclick = () => {
-nav.classList.toggle("active");
+const trigger = window.innerHeight * 0.9;
+
+animados.forEach(el => {
+
+const top = el.getBoundingClientRect().top;
+
+if(top < trigger){
+el.classList.add("visible");
 }
 
+});
+
+}
+
+window.addEventListener("scroll", mostrarScroll);
+
+mostrarScroll();
+
 </script>
+
 </body>
 </html>
