@@ -128,19 +128,27 @@ height:200px;
 
 <body>
 
-<header>
-<div class="logo">
+<header class="header">
+
+<a href="index.html" class="logo">
 <img src="FOTOS/logo.jpg">
 <span>C.I.O.S</span>
-</div>
+</a>
 
-<nav>
+<nav id="nav">
+
 <a href="index.html">Inicio</a>
 <a href="nosotros.html">Nosotros</a>
 <a href="novedades.html">Novedades</a>
 <a href="asociados.html">Asociados</a>
 <a href="contacto.html">Contacto</a>
+
 </nav>
+
+<div class="menu-btn" id="menuBtn">
+☰
+</div>
+
 </header>
 
 <main>
@@ -214,6 +222,15 @@ target="_blank"
 >
 💬
 </a>
+<script>
 
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("nav");
+
+menuBtn.onclick = () => {
+nav.classList.toggle("active");
+}
+
+</script>
 </body>
 </html>
