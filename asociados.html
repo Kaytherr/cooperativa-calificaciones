@@ -563,12 +563,12 @@ ${a.rating.toFixed(1)} (${a.cantidad} calificaciones)
 <div class="estado-box">
 
 <span class="${
-a.estado.toLowerCase() == "vigente"
+(a.estado || "").toLowerCase() == "vigente"
 ? "estado-ok"
 : "estado-bad"
 }">
 
-${a.estado.toLowerCase() == "vigente"
+${(a.estado || "").toLowerCase() == "vigente"
 ? "🟢 Vigente"
 : "🔴 No vigente"}
 
