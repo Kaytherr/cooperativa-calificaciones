@@ -540,10 +540,10 @@ ${a.matricula}
 
 <a
 class="tel-link"
-href="tel:${a.telefono}"
+href="tel:${a.telefono || ''}"
 onclick="event.stopPropagation()"
 >
-${a.telefono}
+${a.telefono || 'No disponible'}
 </a>
 
 </p>
@@ -586,6 +586,9 @@ onclick="event.stopPropagation()"
 Ver perfil
 </a>
 
+${
+a.telefono
+? `
 <a
 class="btn-wsp"
 href="https://wa.me/${a.telefono.replace(/\D/g,'')}"
@@ -594,6 +597,9 @@ onclick="event.stopPropagation()"
 >
 WhatsApp
 </a>
+`
+: ``
+}
 
 </div>
 
