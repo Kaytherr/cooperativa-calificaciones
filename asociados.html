@@ -32,24 +32,18 @@ gap:20px;
 
 .card-asoc{
 background:white;
-border-radius:22px;
-padding:22px;
+border-radius:18px;
+padding:20px;
 box-shadow:0 8px 18px rgba(0,0,0,.08);
 display:flex;
-gap:20px;
-transition:.3s;
+gap:15px;
 align-items:flex-start;
 }
 
-.card-asoc:hover{
-transform:translateY(-4px);
-box-shadow:0 14px 28px rgba(0,0,0,.12);
-}
-
 .card-asoc img{
-width:115px;
-height:115px;
-border-radius:18px;
+width:95px;
+height:95px;
+border-radius:50%;
 object-fit:cover;
 flex-shrink:0;
 }
@@ -58,107 +52,42 @@ flex-shrink:0;
 flex:1;
 }
 
-.top-info{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px;
-margin-bottom:12px;
-flex-wrap:wrap;
-}
-
 .info h3{
-margin:0;
+margin-bottom:8px;
 color:#1f4f68;
-font-size:25px;
+font-size:22px;
 }
 
 .info p{
-margin:6px 0;
-font-size:16px;
-line-height:1.4;
-}
-
-.badge-cat{
-background:#dceef7;
-color:#1f4f68;
-padding:8px 14px;
-border-radius:999px;
-font-size:14px;
-font-weight:bold;
-}
-
-.rating-box{
-margin-top:14px;
-}
-
-.stars{
-font-size:22px;
-margin-bottom:5px;
-}
-
-.rating-text{
+margin:4px 0;
 font-size:15px;
-color:#666;
 }
 
-.estado-box{
-margin-top:14px;
-}
-
-.estado-ok,
-.estado-bad{
-padding:8px 14px;
-border-radius:999px;
+.estado{
 font-weight:bold;
-font-size:14px;
+margin-top:6px;
+}
+
+.vigente{
+color:green;
+}
+
+.novigente{
+color:red;
+}
+
+.rating{
+font-weight:bold;
+margin-top:8px;
+}
+
+.verperfil{
+margin-top:12px;
 display:inline-block;
-}
-
-.estado-ok{
-background:#dff5e1;
-color:#178a2f;
-}
-
-.estado-bad{
-background:#ffe0e0;
-color:#c62828;
-}
-
-.acciones{
-display:flex;
-gap:12px;
-margin-top:18px;
-flex-wrap:wrap;
-}
-
-.btn-asoc,
-.btn-wsp{
-padding:12px 18px;
-border-radius:12px;
-text-decoration:none;
-font-weight:bold;
-transition:.25s;
-}
-
-.btn-asoc{
 background:#1f4f68;
 color:white;
-}
-
-.btn-wsp{
-background:#25d366;
-color:white;
-}
-
-.btn-asoc:hover,
-.btn-wsp:hover{
-transform:scale(1.03);
-}
-
-.tel-link{
-color:#1f4f68;
-font-weight:bold;
+padding:10px 14px;
+border-radius:10px;
 text-decoration:none;
 }
 
@@ -168,14 +97,81 @@ display:block !important;
 
 .lista .card-asoc{
 display:grid;
-grid-template-columns:120px 1fr;
+grid-template-columns:90px 1fr 140px;
 align-items:center;
-gap:20px;
-margin-bottom:14px;
+gap:18px;
+margin-bottom:12px;
+padding:18px;
+border-radius:14px;
+min-height:auto;
 }
 
-.lista .acciones{
-margin-top:14px;
+.lista .card-asoc img{
+width:70px;
+height:70px;
+}
+
+.lista .card-asoc .info{
+display:grid;
+grid-template-columns:repeat(2,minmax(180px,1fr));
+gap:4px 20px;
+align-items:center;
+}
+
+.lista .card-asoc .info h3{
+grid-column:1 / -1;
+margin-bottom:6px;
+font-size:24px;
+}
+
+.lista .card-asoc .verperfil{
+margin:0;
+justify-self:end;
+align-self:center;
+}
+
+@media(max-width:768px){
+
+.lista .card-asoc{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.lista .card-asoc .info{
+grid-template-columns:1fr;
+}
+
+.lista .card-asoc .verperfil{
+justify-self:center;
+margin-top:10px;
+}
+
+}
+
+#paginacion{
+margin-top:25px;
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+#paginacion button{
+padding:10px 14px;
+border:none;
+background:#1f4f68;
+color:white;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+#paginacion button:hover{
+background:#16394b;
+}
+
+#paginacion .activo{
+background:#0f2b39;
 }
 
 @media(max-width:768px){
@@ -190,33 +186,13 @@ grid-template-columns:1fr;
 
 .card-asoc{
 flex-direction:column;
-align-items:center;
 text-align:center;
+align-items:center;
 }
 
 .card-asoc img{
-width:145px;
-height:145px;
-}
-
-.top-info{
-justify-content:center;
-}
-
-.acciones{
-justify-content:center;
-width:100%;
-}
-
-.btn-asoc,
-.btn-wsp{
-flex:1;
-text-align:center;
-}
-
-.lista .card-asoc{
-grid-template-columns:1fr;
-text-align:center;
+width:110px;
+height:110px;
 }
 
 }
@@ -225,27 +201,19 @@ text-align:center;
 </head>
 <body>
 
-<header class="header">
-
-<a href="index.html" class="logo">
+<header>
+<div class="logo">
 <img src="FOTOS/logo.jpg">
 <span>C.I.O.S</span>
-</a>
+</div>
 
-<nav id="nav">
-
+<nav>
 <a href="index.html">Inicio</a>
 <a href="nosotros.html">Nosotros</a>
 <a href="novedades.html">Novedades</a>
 <a href="asociados.html">Asociados</a>
 <a href="contacto.html">Contacto</a>
-
 </nav>
-
-<div class="menu-btn" id="menuBtn">
-☰
-</div>
-
 </header>
 
 <main>
@@ -271,81 +239,7 @@ text-align:center;
 
 </main>
 
-<footer class="footer">
-
-<div class="footer-grid">
-
-<!-- LOGO -->
-
-<div class="footer-col">
-
-<div class="footer-logo">
-
-<img src="FOTOS/logo.jpg">
-
-<span>C.I.O.S</span>
-
-</div>
-
-<p>
-Cooperativa de Instaladores Organizados de Santa Fe.
-Profesionales matriculados, verificados y calificados.
-</p>
-
-</div>
-
-<!-- LINKS -->
-
-<div class="footer-col">
-
-<h3>Enlaces</h3>
-
-<a href="index.html">Inicio</a>
-<a href="nosotros.html">Nosotros</a>
-<a href="novedades.html">Novedades</a>
-<a href="asociados.html">Asociados</a>
-<a href="contacto.html">Contacto</a>
-
-</div>
-
-<!-- CONTACTO -->
-
-<div class="footer-col">
-
-<h3>Contacto</h3>
-
-<p>📍 Santa Fe, Argentina</p>
-
-<p>
-📞
-<a href="tel:+549XXXXXXXXXX">
-+54 9 XXX XXX XXXX
-</a>
-</p>
-
-<p>
-💬
-<a
-href="https://wa.me/549XXXXXXXXXX"
-target="_blank"
->
-WhatsApp
-</a>
-</p>
-
-<p>
-✉ contacto@cios.com
-</p>
-
-</div>
-
-</div>
-
-<div class="footer-bottom">
-© 2026 C.I.O.S - Todos los derechos reservados
-</div>
-
-</footer>
+<footer>© 2026 C.I.O.S</footer>
 
 <script>
 
@@ -429,85 +323,38 @@ let html = "";
 mostrar.forEach(a => {
 
 html += `
-
-<div class="card-asoc animado">
+<div class="card-asoc">
 
 <img src="${a.foto || 'https://via.placeholder.com/100'}">
 
 <div class="info">
 
-<div class="top-info">
-
 <h3>${a.nombre}</h3>
 
-<span class="badge-cat">
-${a.categoria}
-</span>
+<p><b>Matrícula:</b> ${a.matricula}</p>
 
-</div>
-
-<p>
-<strong>Matrícula:</strong>
-${a.matricula}
-</p>
-
-<p>
-<strong>Teléfono:</strong>
-
-<a class="tel-link" href="tel:${a.telefono}">
+<p><b>Teléfono:</b>
+<a href="tel:${a.telefono}">
 ${a.telefono}
 </a>
-
 </p>
 
-<div class="rating-box">
+<p><b>Categoría:</b> ${a.categoria}</p>
 
-<div class="stars">
-${generarEstrellas(a.rating)}
-</div>
+<p class="rating">
+⭐ ${a.rating.toFixed(2)} (${a.cantidad})
+</p>
 
-<div class="rating-text">
-${a.rating.toFixed(1)} (${a.cantidad} calificaciones)
-</div>
+<p class="estado ${a.estado=='Vigente' ? 'vigente':'novigente'}">
+${a.estado}
+</p>
 
-</div>
-
-<div class="estado-box">
-
-<span class="${
-a.estado.toLowerCase() == "vigente"
-? "estado-ok"
-: "estado-bad"
-}">
-
-${a.estado.toLowerCase() == "vigente"
-? "🟢 Vigente"
-: "🔴 No vigente"}
-
-</span>
-
-</div>
-
-<div class="acciones">
-
-<a class="btn-asoc" href="empleado.html?id=${a.id}">
+<a class="verperfil" href="empleado.html?id=${a.id}">
 Ver perfil
 </a>
 
-<a
-class="btn-wsp"
-href="https://wa.me/54${a.telefono.replace(/\D/g,'')}"
-target="_blank"
->
-WhatsApp
-</a>
-
 </div>
-
 </div>
-
-</div>
-
 `;
 
 });
@@ -569,27 +416,6 @@ paginaActual = n;
 render();
 }
 
-function generarEstrellas(rating){
-
-let estrellas = "";
-
-let completas = Math.round(rating);
-
-for(let i=0;i<5;i++){
-
-if(i < completas){
-estrellas += "⭐";
-}
-else{
-estrellas += "☆";
-}
-
-}
-
-return estrellas;
-
-}
-
 </script>
 <!-- BOTON WHATSAPP -->
 <a
@@ -599,15 +425,5 @@ target="_blank"
 >
 <img class="wsp-icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
-<script>
-
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.getElementById("nav");
-
-menuBtn.onclick = () => {
-nav.classList.toggle("active");
-}
-
-</script>
 </body>
 </html>
