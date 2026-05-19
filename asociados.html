@@ -243,6 +243,10 @@ background:#0f2b39;
 grid-template-columns:1fr;
 }
 
+.topbar button{
+display:none;
+}
+
 #contenedor{
 grid-template-columns:1fr;
 }
@@ -427,6 +431,9 @@ const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTYtWCGqYY1syX0O952
 
 let asociados = [];
 let vistaLista = false;
+if(window.innerWidth <= 768){
+vistaLista = false;
+}
 let paginaActual = 1;
 let porPagina = 8;
 
@@ -673,8 +680,14 @@ render();
 });
 
 function cambiarVista(){
+
+if(window.innerWidth <= 768){
+return;
+}
+
 vistaLista = !vistaLista;
 render();
+
 }
 
 function cambiarPagina(n){
