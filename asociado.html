@@ -1,328 +1,100 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
+
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Perfil Asociado</title>
-
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Perfil del asociado</title>
 
 <style>
 
-.perfil-container{
-max-width:1100px;
-margin:auto;
-padding:35px 20px;
+body{
+font-family: Arial;
+background:#2c5d73;
+color:white;
+text-align:center;
+margin:0;
+padding:20px;
 }
 
-/* CARD PRINCIPAL */
+/* LOGO */
+.header{
+  width:100%;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  margin-bottom:20px;
+}
 
-.perfil-card{
+.logo-header{
+  width:100px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.logo-header:hover{
+  transform:scale(1.05);
+}
+
+/* TARJETA */
+.card{
 background:white;
-border-radius:30px;
-padding:35px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-display:grid;
-grid-template-columns:260px 1fr;
-gap:35px;
-margin-bottom:30px;
+color:black;
+padding:40px;
+border-radius:20px;
+max-width:350px;
+margin:auto;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
 /* FOTO */
-
-.perfil-foto{
-text-align:center;
-}
-
-.perfil-foto img{
-width:100%;
-height:260px;
+#foto{
+width:120px;
+height:120px;
+border-radius:50%;
 object-fit:cover;
-border-radius:24px;
-border:4px solid #f1f1f1;
-background:#eee;
+margin-bottom:15px;
 }
 
-/* CREDENCIAL */
-
-.credencial{
-margin-top:18px;
-background:linear-gradient(135deg,#1f4f68,#16394b);
-color:white;
-padding:18px;
-border-radius:22px;
-text-align:center;
-box-shadow:0 8px 20px rgba(0,0,0,.15);
+/* TEXTO */
+.info p{
+margin:10px 0;
+font-size:18px;
 }
 
-.credencial-top{
-font-size:14px;
-opacity:.9;
-margin-bottom:10px;
-}
-
-.credencial h2{
-font-size:28px;
-margin-bottom:5px;
-}
-
-.credencial p{
-font-size:15px;
-opacity:.95;
-margin-bottom:10px;
-}
-
-.credencial span{
-display:inline-block;
-background:rgba(255,255,255,.15);
-padding:8px 14px;
-border-radius:999px;
-font-size:14px;
-}
-
-/* INFO */
-
-.perfil-info h1{
-font-size:42px;
-margin-bottom:10px;
-color:#1f4f68;
-line-height:1.1;
-}
-
-.badge{
-display:inline-block;
-padding:10px 16px;
-border-radius:999px;
+.titulo{
 font-weight:bold;
-font-size:14px;
-margin-bottom:18px;
-}
-
-.badge-cat{
-background:#dceef7;
-color:#1f4f68;
 }
 
 /* ESTADO */
-
-.estado-box{
-margin-top:10px;
-margin-bottom:18px;
-}
-
-.estado-ok,
-.estado-bad{
-padding:12px 18px;
-border-radius:999px;
+.estado{
 font-weight:bold;
-display:inline-block;
-font-size:15px;
-}
-
-.estado-ok{
-background:#dff5e1;
-color:#178a2f;
-}
-
-.estado-bad{
-background:#ffe0e0;
-color:#c62828;
+margin-top:10px;
 }
 
 /* RATING */
-
-.rating-box{
-margin-top:15px;
-}
-
-.stars{
-font-size:30px;
-margin-bottom:8px;
-}
-
-.rating-text{
-font-size:18px;
-color:#555;
-}
-
-/* INFO GRID */
-
-.info-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:16px;
-margin-top:24px;
-}
-
-.info-item{
-background:#f7f7f7;
-padding:18px;
-border-radius:18px;
-}
-
-.info-item h3{
-font-size:14px;
-margin-bottom:8px;
-color:#666;
-}
-
-.info-item p{
-font-size:18px;
+.rating{
+font-size:22px;
 font-weight:bold;
-color:#222;
-word-break:break-word;
+margin:10px 0;
 }
 
-/* SANCIONES */
-
-.sancion-card{
-margin-top:25px;
-padding:22px;
-border-radius:22px;
-}
-
-.sin-sancion{
-background:#e8f8ea;
-border:2px solid #b8e7c0;
-}
-
-.con-sancion{
-background:#fff4e0;
-border:2px solid #ffd27a;
-}
-
-.sancion-card h2{
-margin-bottom:12px;
-}
-
-/* BOTONES */
-
-.botones{
-display:flex;
-gap:14px;
-flex-wrap:wrap;
-margin-top:30px;
-}
-
-.btn{
-padding:14px 22px;
-border-radius:14px;
-text-decoration:none;
-font-weight:bold;
-transition:.25s;
-display:inline-block;
-text-align:center;
-}
-
-.btn-azul{
-background:#1f4f68;
+/* BOTÓN */
+button{
+background:#2c5d73;
 color:white;
-}
-
-.btn-verde{
-background:#25d366;
-color:white;
-}
-
-.btn-gris{
-background:#ececec;
-color:#333;
-}
-
-.btn:hover{
-transform:translateY(-3px);
-}
-
-/* MOBILE */
-
-@media(max-width:850px){
-
-.perfil-container{
-padding:20px 14px;
-}
-
-.perfil-card{
-grid-template-columns:1fr;
-text-align:center;
-padding:25px 18px;
-border-radius:26px;
-}
-
-.perfil-foto img{
-width:170px;
-height:170px;
-border-radius:50%;
-margin:auto;
-display:block;
-object-fit:cover;
-}
-
-.credencial{
-margin-top:22px;
-}
-
-.perfil-info h1{
-font-size:32px;
-line-height:1.2;
-margin-top:10px;
-}
-
-.badge{
-font-size:15px;
-padding:10px 18px;
-}
-
-.rating-box{
-margin-top:18px;
-}
-
-.stars{
-font-size:32px;
-}
-
-.rating-text{
-font-size:17px;
-}
-
-.info-grid{
-grid-template-columns:1fr;
-gap:14px;
-margin-top:22px;
-}
-
-.info-item{
-padding:18px;
-border-radius:18px;
-}
-
-.info-item h3{
-font-size:14px;
-}
-
-.info-item p{
+border:none;
+padding:15px;
+border-radius:10px;
 font-size:18px;
-}
-
-.botones{
-flex-direction:column;
+cursor:pointer;
 width:100%;
-margin-top:25px;
+transition:0.3s;
 }
 
-.btn{
-width:100%;
-padding:18px;
-font-size:18px;
-border-radius:16px;
-}
-
-.sancion-card{
-margin-top:24px;
-padding:20px;
-text-align:left;
-}
-
+button:hover{
+background:#1f4557;
+transform:scale(1.05);
 }
 
 </style>
@@ -330,346 +102,122 @@ text-align:left;
 
 <body>
 
-<header class="header">
+<div class="header">
+  <a href="index.html">
+    <img src="FOTOS/logo.jpg" class="logo-header">
+  </a>
+</div>
 
-<a href="index.html" class="logo">
-<img src="FOTOS/logo.jpg">
-<span>C.I.O.S</span>
+<h2>Perfil del asociado</h2>
+
+<div class="card">
+
+<img id="foto" src="https://via.placeholder.com/120">
+
+<h2 id="nombre">Cargando...</h2>
+
+<div class="info">
+<p id="matricula"></p>
+<p id="direccion"></p>
+<p id="telefono"></p>
+<p id="categoria"></p>
+<p id="estado" class="estado"></p>
+</div>
+
+<div id="rating" class="rating">Cargando...</div>
+
+<br>
+
+<a id="boton" href="#">
+<button>Calificar asociado</button>
 </a>
 
-<nav id="nav">
-
-<a href="index.html">Inicio</a>
-<a href="nosotros.html">Nosotros</a>
-<a href="novedades.html">Novedades</a>
-<a href="asociados.html">Asociados</a>
-<a href="contacto.html">Contacto</a>
-
-</nav>
-
-<div class="menu-btn" id="menuBtn">
-☰
 </div>
-
-</header>
-
-<main class="perfil-container">
-
-<div id="perfil"></div>
-
-</main>
-
-<footer class="footer">
-
-<div class="footer-grid">
-
-<div class="footer-col">
-
-<div class="footer-logo">
-
-<img src="FOTOS/logo.jpg">
-
-<span>C.I.O.S</span>
-
-</div>
-
-<p>
-Cooperativa de Instaladores Organizados de Santa Fe.
-</p>
-
-</div>
-
-<div class="footer-col">
-
-<h3>Enlaces</h3>
-
-<a href="index.html">Inicio</a>
-<a href="nosotros.html">Nosotros</a>
-<a href="novedades.html">Novedades</a>
-<a href="asociados.html">Asociados</a>
-<a href="contacto.html">Contacto</a>
-
-</div>
-
-<div class="footer-col">
-
-<h3>Contacto</h3>
-
-<p>📍 Santa Fe, Argentina</p>
-
-<p>✉ contacto@cios.com</p>
-
-</div>
-
-</div>
-
-<div class="footer-bottom">
-© 2026 C.I.O.S
-</div>
-
-</footer>
 
 <script>
 
-const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTYtWCGqYY1syX0O952yzEl9YIA1fe7ORQLpDIiWz4s51ySBD_grl9iRbdsAkXzv68hJJKfVkTPmzGJ/pub?gid=0&single=true&output=csv";
+// refresca cada 60s
+setInterval(() => location.reload(), 60000);
 
+// obtener ID de la URL
 const params = new URLSearchParams(window.location.search);
-
 const id = params.get("id");
 
+// CSV
+const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTYtWCGqYY1syX0O952yzEl9YIA1fe7ORQLpDIiWz4s51ySBD_grl9iRbdsAkXzv68hJJKfVkTPmzGJ/pub?gid=0&single=true&output=csv";
+
 fetch(url)
-.then(r => r.text())
+.then(res => res.text())
 .then(data => {
 
 const filas = data.trim().split("\n");
-
-let asociado = null;
+let encontrado = false;
 
 for(let i=1;i<filas.length;i++){
 
-let c = filas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+let columnas = filas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
 
-let obj = {
+let trabajadorID = columnas[0].replaceAll('"',"").trim();
+let nombre = columnas[1].replaceAll('"',"").trim();
+let matricula = columnas[2].replaceAll('"',"").trim();
+let direccion = columnas[3].replaceAll('"',"").trim();
+let telefono = columnas[4].replaceAll('"',"").trim();
+let categoria = columnas[5].replaceAll('"',"").trim();
+let promedio = columnas[6].replaceAll('"',"").replace(",",".").trim();
+let cantidad = columnas[7].replaceAll('"',"").trim();
+let formulario = columnas[8].replaceAll('"',"").trim();
+let foto = columnas[9].replaceAll('"',"").trim();
+let estado = columnas[10].replaceAll('"',"").trim();
 
-id:c[0].replaceAll('"','').trim(),
-nombre:c[1].replaceAll('"','').trim(),
-matricula:c[2].replaceAll('"','').trim(),
-direccion:c[3].replaceAll('"','').trim(),
-telefono:c[4].replaceAll('"','').trim(),
-categoria:c[5].replaceAll('"','').trim(),
-rating:parseFloat(c[6].replaceAll('"','').replace(",",".")) || 0,
-cantidad:c[7].replaceAll('"','').trim(),
-formulario:c[8].replaceAll('"','').trim(),
-foto:c[9].replaceAll('"','').trim(),
-estado:c[10].replaceAll('"','').trim(),
-sancion:c[11]?.replaceAll('"','').trim() || "",
-fechaSancion:c[12]?.replaceAll('"','').trim() || ""
+if(trabajadorID.replace(/^0+/, '') === id.replace(/^0+/, '')){
 
-};
+encontrado = true;
 
-if(obj.id == id){
-asociado = obj;
-break;
+// datos
+document.getElementById("nombre").innerText = nombre;
+
+document.getElementById("matricula").innerHTML = "<span class='titulo'> Matrícula:</span> " + matricula;
+document.getElementById("direccion").innerHTML = "<span class='titulo'> Dirección:</span> " + direccion;
+document.getElementById("telefono").innerHTML = "<span class='titulo'> Teléfono:</span> " + telefono;
+document.getElementById("categoria").innerHTML = "<span class='titulo'> Categoría:</span> " + categoria;
+
+// estado
+if(estado === "Vigente"){
+  document.getElementById("estado").innerHTML = "🟢 Vigente";
+  document.getElementById("estado").style.color = "green";
+} else {
+  document.getElementById("estado").innerHTML = "🔴 No vigente";
+  document.getElementById("estado").style.color = "red";
+}
+
+// rating
+if(promedio === "" || promedio === "0"){
+document.getElementById("rating").innerText = "Sin calificaciones";
+} else {
+let promedioNum = parseFloat(promedio);
+let promedioRedondeado = promedioNum.toFixed(2);
+
+document.getElementById("rating").innerText =
+"⭐ " + promedioRedondeado + " / 5 (" + cantidad + " opiniones)";
+}
+
+// botón
+document.getElementById("boton").href = formulario;
+
+// foto
+if(foto !== ""){
+  document.getElementById("foto").src = foto;
 }
 
 }
 
-if(!asociado){
-
-document.getElementById("perfil").innerHTML = `
-<h1>Asociado no encontrado</h1>
-`;
-
-return;
-
 }
 
-render(asociado);
+if(!encontrado){
+document.body.innerHTML = "<h2>Trabajador no encontrado</h2>";
+}
 
 });
-
-function render(a){
-
-document.title = a.nombre + " | C.I.O.S";
-
-document.getElementById("perfil").innerHTML = `
-
-<div class="perfil-card">
-
-<div class="perfil-foto">
-
-<img
-src="${a.foto && a.foto.startsWith('http')
-? a.foto
-: 'FOTOS/default-user.jpg'}"
->
-
-<div class="credencial">
-
-<div class="credencial-top">
-✔ Perfil verificado digitalmente
-</div>
-
-<h2>C.I.O.S</h2>
-
-<p>Asociado matriculado</p>
-
-<span>ID #${a.id}</span>
-
-</div>
-
-</div>
-
-<div class="perfil-info">
-
-<div class="estado-box">
-
-<span class="${
-a.estado.toLowerCase() == "vigente"
-? "estado-ok"
-: "estado-bad"
-}">
-
-${a.estado.toLowerCase() == "vigente"
-? "🟢 Asociado habilitado"
-: "🔴 Asociado suspendido"}
-
-</span>
-
-</div>
-
-<h1>${a.nombre}</h1>
-
-<div class="badge badge-cat">
-${a.categoria}
-</div>
-
-<div class="rating-box">
-
-<div class="stars">
-${generarEstrellas(a.rating)}
-</div>
-
-<div class="rating-text">
-${a.rating.toFixed(1)} (${a.cantidad} calificaciones)
-</div>
-
-</div>
-
-<div class="info-grid">
-
-<div class="info-item">
-<h3>Matrícula</h3>
-<p>${a.matricula}</p>
-</div>
-
-<div class="info-item">
-<h3>Teléfono</h3>
-<p>${a.telefono}</p>
-</div>
-
-<div class="info-item">
-<h3>Dirección</h3>
-<p>${a.direccion}</p>
-</div>
-
-<div class="info-item">
-<h3>Categoría</h3>
-<p>${a.categoria}</p>
-</div>
-
-</div>
-
-<div class="sancion-card ${
-a.sancion
-? "con-sancion"
-: "sin-sancion"
-}">
-
-${
-a.sancion
-? `
-<h2>⚠ Sanción registrada</h2>
-
-<p>
-<strong>Motivo:</strong>
-${a.sancion}
-</p>
-
-<p>
-<strong>Fecha:</strong>
-${a.fechaSancion}
-</p>
-`
-: `
-<h2>✅ Sin sanciones</h2>
-
-<p>
-Este asociado no posee sanciones registradas.
-</p>
-`
-}
-
-</div>
-
-<div class="botones">
-
-<a
-class="btn btn-verde"
-href="https://wa.me/${a.telefono.replace(/\D/g,'')}"
-target="_blank"
->
-WhatsApp
-</a>
-
-<a
-class="btn btn-azul"
-href="tel:${a.telefono}"
->
-Llamar
-</a>
-
-<a
-class="btn btn-gris"
-href="asociados.html"
->
-Volver
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-`;
-
-}
-
-function generarEstrellas(rating){
-
-let estrellas = "";
-
-let completas = Math.round(rating);
-
-for(let i=0;i<5;i++){
-
-if(i < completas){
-estrellas += "⭐";
-}
-else{
-estrellas += "☆";
-}
-
-}
-
-return estrellas;
-
-}
-
-</script>
-
-<!-- BOTON WHATSAPP -->
-
-<a
-href="https://wa.me/549XXXXXXXXXX"
-class="wsp-float"
-target="_blank"
->
-<img
-class="wsp-icon"
-src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
->
-</a>
-
-<script>
-
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.getElementById("nav");
-
-menuBtn.onclick = () => {
-nav.classList.toggle("active");
-}
 
 </script>
 
