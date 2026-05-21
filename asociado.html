@@ -250,7 +250,7 @@ src="${a.foto && a.foto.startsWith('http')
 <h1>${a.nombre}</h1>
 
 <div class="categoria">
-${a.categoria}
+Categoría ${a.categoria}
 </div>
 
 <div class="estado ${
@@ -283,9 +283,21 @@ ${a.rating.toFixed(1)} de puntuación
 
 <div class="info-box">
 
-<h3>ID Asociado</h3>
+<h3>Teléfono</h3>
 
-<p>#${a.id}</p>
+<p>
+
+<a
+href="tel:${a.telefono}"
+style="
+text-decoration:none;
+color:#222;
+"
+>
+${a.telefono}
+</a>
+
+</p>
 
 </div>
 
