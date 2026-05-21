@@ -1,100 +1,161 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<title>Perfil del asociado</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Perfil Asociado</title>
+
+<link rel="stylesheet" href="style.css">
 
 <style>
 
-body{
-font-family: Arial;
-background:#2c5d73;
-color:white;
-text-align:center;
-margin:0;
-padding:20px;
-}
-
-/* LOGO */
-.header{
-  width:100%;
-  display:flex;
-  justify-content:flex-start;
-  align-items:center;
-  margin-bottom:20px;
-}
-
-.logo-header{
-  width:100px;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.logo-header:hover{
-  transform:scale(1.05);
-}
-
-/* TARJETA */
-.card{
-background:white;
-color:black;
-padding:40px;
-border-radius:20px;
-max-width:350px;
+.perfil-container{
+max-width:500px;
 margin:auto;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
+padding:25px 15px;
+}
+
+/* CARD */
+
+.perfil-card{
+background:white;
+border-radius:30px;
+padding:30px 22px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+text-align:center;
 }
 
 /* FOTO */
-#foto{
-width:120px;
-height:120px;
+
+.perfil-foto img{
+width:170px;
+height:170px;
 border-radius:50%;
 object-fit:cover;
-margin-bottom:15px;
+border:5px solid #f1f1f1;
+background:#eee;
 }
 
-/* TEXTO */
-.info p{
-margin:10px 0;
+/* NOMBRE */
+
+.perfil-info h1{
+font-size:34px;
+margin-top:20px;
+margin-bottom:8px;
+color:#1f4f68;
+line-height:1.1;
+}
+
+.categoria{
 font-size:18px;
-}
-
-.titulo{
-font-weight:bold;
+color:#666;
+margin-bottom:18px;
 }
 
 /* ESTADO */
+
 .estado{
+display:inline-block;
+padding:12px 20px;
+border-radius:999px;
 font-weight:bold;
-margin-top:10px;
+font-size:16px;
+margin-bottom:20px;
 }
 
-/* RATING */
-.rating{
-font-size:22px;
-font-weight:bold;
-margin:10px 0;
+.estado-ok{
+background:#dff5e1;
+color:#178a2f;
 }
 
-/* BOTÓN */
-button{
-background:#2c5d73;
-color:white;
-border:none;
-padding:15px;
-border-radius:10px;
+.estado-bad{
+background:#ffe0e0;
+color:#c62828;
+}
+
+/* ESTRELLAS */
+
+.stars{
+font-size:34px;
+margin-bottom:8px;
+}
+
+.rating-text{
 font-size:18px;
-cursor:pointer;
-width:100%;
-transition:0.3s;
+color:#555;
+margin-bottom:25px;
 }
 
-button:hover{
-background:#1f4557;
-transform:scale(1.05);
+/* INFO */
+
+.info-box{
+background:#f7f7f7;
+border-radius:18px;
+padding:18px;
+margin-bottom:15px;
+}
+
+.info-box h3{
+font-size:14px;
+color:#666;
+margin-bottom:8px;
+}
+
+.info-box p{
+font-size:20px;
+font-weight:bold;
+color:#222;
+word-break:break-word;
+}
+
+/* SANCION */
+
+.sancion{
+margin-top:20px;
+padding:16px;
+border-radius:18px;
+font-weight:bold;
+font-size:16px;
+}
+
+.sem-sancion{
+background:#e8f8ea;
+color:#178a2f;
+}
+
+.con-sancion{
+background:#fff3cd;
+color:#9a6700;
+}
+
+/* VERIFICACION */
+
+.verificado{
+margin-top:25px;
+font-size:15px;
+color:#666;
+}
+
+/* BOTON */
+
+.btn-calificar{
+margin-top:25px;
+display:block;
+width:100%;
+padding:18px;
+border-radius:18px;
+background:#1f4f68;
+color:white;
+font-size:18px;
+font-weight:bold;
+text-decoration:none;
+transition:.3s;
+}
+
+.btn-calificar:hover{
+background:#16394b;
+transform:translateY(-2px);
 }
 
 </style>
@@ -102,122 +163,186 @@ transform:scale(1.05);
 
 <body>
 
-<div class="header">
-  <a href="index.html">
-    <img src="FOTOS/logo.jpg" class="logo-header">
-  </a>
-</div>
+<main class="perfil-container">
 
-<h2>Perfil del asociado</h2>
+<div id="perfil"></div>
 
-<div class="card">
-
-<img id="foto" src="https://via.placeholder.com/120">
-
-<h2 id="nombre">Cargando...</h2>
-
-<div class="info">
-<p id="matricula"></p>
-<p id="direccion"></p>
-<p id="telefono"></p>
-<p id="categoria"></p>
-<p id="estado" class="estado"></p>
-</div>
-
-<div id="rating" class="rating">Cargando...</div>
-
-<br>
-
-<a id="boton" href="#">
-<button>Calificar asociado</button>
-</a>
-
-</div>
+</main>
 
 <script>
 
-// refresca cada 60s
-setInterval(() => location.reload(), 60000);
-
-// obtener ID de la URL
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
-
-// CSV
 const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTYtWCGqYY1syX0O952yzEl9YIA1fe7ORQLpDIiWz4s51ySBD_grl9iRbdsAkXzv68hJJKfVkTPmzGJ/pub?gid=0&single=true&output=csv";
 
+const params = new URLSearchParams(window.location.search);
+
+const id = params.get("id");
+
 fetch(url)
-.then(res => res.text())
+.then(r => r.text())
 .then(data => {
 
 const filas = data.trim().split("\n");
-let encontrado = false;
+
+let asociado = null;
 
 for(let i=1;i<filas.length;i++){
 
-let columnas = filas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+let c = filas[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
 
-let trabajadorID = columnas[0].replaceAll('"',"").trim();
-let nombre = columnas[1].replaceAll('"',"").trim();
-let matricula = columnas[2].replaceAll('"',"").trim();
-let direccion = columnas[3].replaceAll('"',"").trim();
-let telefono = columnas[4].replaceAll('"',"").trim();
-let categoria = columnas[5].replaceAll('"',"").trim();
-let promedio = columnas[6].replaceAll('"',"").replace(",",".").trim();
-let cantidad = columnas[7].replaceAll('"',"").trim();
-let formulario = columnas[8].replaceAll('"',"").trim();
-let foto = columnas[9].replaceAll('"',"").trim();
-let estado = columnas[10].replaceAll('"',"").trim();
+let obj = {
 
-if(trabajadorID.replace(/^0+/, '') === id.replace(/^0+/, '')){
+id:c[0].replaceAll('"','').trim(),
+nombre:c[1].replaceAll('"','').trim(),
+matricula:c[2].replaceAll('"','').trim(),
+direccion:c[3].replaceAll('"','').trim(),
+telefono:c[4].replaceAll('"','').trim(),
+categoria:c[5].replaceAll('"','').trim(),
+rating:parseFloat(c[6].replaceAll('"','').replace(",",".")) || 0,
+cantidad:c[7].replaceAll('"','').trim(),
+formulario:c[8].replaceAll('"','').trim(),
+foto:c[9].replaceAll('"','').trim(),
+estado:c[10].replaceAll('"','').trim(),
+sancion:c[11]?.replaceAll('"','').trim() || ""
 
-encontrado = true;
+};
 
-// datos
-document.getElementById("nombre").innerText = nombre;
-
-document.getElementById("matricula").innerHTML = "<span class='titulo'> Matrícula:</span> " + matricula;
-document.getElementById("direccion").innerHTML = "<span class='titulo'> Dirección:</span> " + direccion;
-document.getElementById("telefono").innerHTML = "<span class='titulo'> Teléfono:</span> " + telefono;
-document.getElementById("categoria").innerHTML = "<span class='titulo'> Categoría:</span> " + categoria;
-
-// estado
-if(estado === "Vigente"){
-  document.getElementById("estado").innerHTML = "🟢 Vigente";
-  document.getElementById("estado").style.color = "green";
-} else {
-  document.getElementById("estado").innerHTML = "🔴 No vigente";
-  document.getElementById("estado").style.color = "red";
-}
-
-// rating
-if(promedio === "" || promedio === "0"){
-document.getElementById("rating").innerText = "Sin calificaciones";
-} else {
-let promedioNum = parseFloat(promedio);
-let promedioRedondeado = promedioNum.toFixed(2);
-
-document.getElementById("rating").innerText =
-"⭐ " + promedioRedondeado + " / 5 (" + cantidad + " opiniones)";
-}
-
-// botón
-document.getElementById("boton").href = formulario;
-
-// foto
-if(foto !== ""){
-  document.getElementById("foto").src = foto;
+if(obj.id == id){
+asociado = obj;
+break;
 }
 
 }
 
+if(!asociado){
+
+document.getElementById("perfil").innerHTML = `
+<h1>Asociado no encontrado</h1>
+`;
+
+return;
+
 }
 
-if(!encontrado){
-document.body.innerHTML = "<h2>Trabajador no encontrado</h2>";
-}
+render(asociado);
 
 });
+
+function render(a){
+
+document.title = a.nombre + " | C.I.O.S";
+
+document.getElementById("perfil").innerHTML = `
+
+<div class="perfil-card">
+
+<div class="perfil-foto">
+
+<img
+src="${a.foto && a.foto.startsWith('http')
+? a.foto
+: 'FOTOS/default-user.jpg'}"
+>
+
+</div>
+
+<div class="perfil-info">
+
+<h1>${a.nombre}</h1>
+
+<div class="categoria">
+${a.categoria}
+</div>
+
+<div class="estado ${
+a.estado.toLowerCase() == "vigente"
+? "estado-ok"
+: "estado-bad"
+}">
+
+${a.estado.toLowerCase() == "vigente"
+? "🟢 Asociado habilitado"
+: "🔴 Asociado suspendido"}
+
+</div>
+
+<div class="stars">
+${generarEstrellas(a.rating)}
+</div>
+
+<div class="rating-text">
+${a.rating.toFixed(1)} de puntuación
+</div>
+
+<div class="info-box">
+
+<h3>Matrícula</h3>
+
+<p>${a.matricula}</p>
+
+</div>
+
+<div class="info-box">
+
+<h3>ID Asociado</h3>
+
+<p>#${a.id}</p>
+
+</div>
+
+<div class="sancion ${
+a.sancion
+? "con-sancion"
+: "sem-sancion"
+}">
+
+${
+a.sancion
+? "⚠ Posee sanciones registradas"
+: "✔ Sin sanciones"
+}
+
+</div>
+
+<a
+class="btn-calificar"
+href="${a.formulario}"
+target="_blank"
+>
+Calificar asociado
+</a>
+
+<div class="verificado">
+✔ Perfil verificado por C.I.O.S
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+function generarEstrellas(rating){
+
+let estrellas = "";
+
+let completas = Math.round(rating);
+
+for(let i=0;i<5;i++){
+
+if(i < completas){
+estrellas += "⭐";
+}
+else{
+estrellas += "☆";
+}
+
+}
+
+return estrellas;
+
+}
 
 </script>
 
