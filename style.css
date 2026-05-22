@@ -421,18 +421,20 @@ font-size:18px;
 
 @media(max-width:768px){
 
-nav{
+#nav{
 display:flex;
 flex-direction:column;
 align-items:center;
 }
 
-nav a{
+#nav a{
 margin:8px 0;
 font-size:18px;
 }
 
 }
+
+
 @media(max-width:768px){
 
 .card{
