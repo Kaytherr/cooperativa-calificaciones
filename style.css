@@ -49,18 +49,7 @@ gap:10px;
 align-items:center;
 }
 
-#nav a{
-color:white;
-text-decoration:none;
-padding:10px 14px;
-border-radius:10px;
-font-weight:bold;
-transition:.25s;
-}
 
-#nav a:hover{
-background:rgba(255,255,255,.12);
-}
 
 .menu-btn{
 display:none;
@@ -93,16 +82,9 @@ gap:5px;
 box-shadow:0 10px 20px rgba(0,0,0,.15);
 }
 
-#nav.active{
-display:flex;
-}
 
-#nav a{
-width:100%;
-padding:14px;
-font-size:18px;
-border-radius:10px;
-}
+
+
 
 .logo span{
 font-size:22px;
