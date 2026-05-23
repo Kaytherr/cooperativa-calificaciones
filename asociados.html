@@ -219,7 +219,10 @@ categoria:c[5].replaceAll('"','').trim(),
 rating:parseFloat(c[6].replaceAll('"','').replace(",",".")) || 0,
 cantidad:c[7].replaceAll('"','').trim(),
 formulario:c[8].replaceAll('"','').trim(),
-foto:c[9].replaceAll('"','').trim(),
+foto:c[9]
+.replaceAll('"','')
+.trim()
+.replace("uc?id=", "thumbnail?id="),
 estado:c[10].replaceAll('"','').trim(),
 
 sancion:c[11].replaceAll('"','').trim(),
@@ -278,9 +281,8 @@ html += `
 
 
 <img
-src="${a.foto && a.foto.startsWith('http')
-? a.foto
-: 'FOTOS/default-user.jpg'}"
+src="${a.foto ? a.foto : 'FOTOS/default-user.jpg'}"
+onerror="this.src='FOTOS/default-user.jpg'"
 >
 
 <div class="info">
