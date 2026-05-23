@@ -929,7 +929,7 @@ cursor:pointer;
 
 @media(max-width:768px){
 
-.lista{
+#contenedor.lista{
 display:flex;
 flex-direction:column;
 gap:14px;
@@ -1018,6 +1018,7 @@ box-shadow:0 8px 20px rgba(0,0,0,.08);
 transition:.3s;
 display:flex;
 flex-direction:column;
+min-width:0;
 }
 
 .card-asoc:hover{
@@ -1029,6 +1030,8 @@ box-shadow:0 14px 28px rgba(0,0,0,.12);
 width:100%;
 height:240px;
 object-fit:cover;
+display:block;
+background:#eee;
 }
 
 .info{
@@ -1174,6 +1177,14 @@ align-items:flex-start;
 
 .acciones{
 flex-direction:column;
+}
+
+}
+
+@media(max-width:768px){
+
+.topbar button{
+display:none;
 }
 
 }
