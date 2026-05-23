@@ -281,8 +281,9 @@ html += `
 
 
 <img
-src="${a.foto ? a.foto : 'FOTOS/default-user.jpg'}"
-onerror="this.src='FOTOS/default-user.jpg'"
+src="${a.foto && a.foto.startsWith('http')
+? a.foto
+: 'FOTOS/default-user.jpg'}"
 >
 
 <div class="info">
