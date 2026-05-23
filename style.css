@@ -43,13 +43,28 @@ border-radius:50%;
 object-fit:cover;
 }
 
+/* NAV DESKTOP */
+
 #nav{
 display:flex;
 gap:10px;
 align-items:center;
 }
 
+#nav a{
+color:white;
+text-decoration:none;
+padding:10px 14px;
+border-radius:10px;
+font-weight:bold;
+transition:.25s;
+}
 
+#nav a:hover{
+background:rgba(255,255,255,.12);
+}
+
+/* BOTON MENU */
 
 .menu-btn{
 display:none;
@@ -57,6 +72,8 @@ font-size:32px;
 color:white;
 cursor:pointer;
 }
+
+/* MOBILE */
 
 @media(max-width:900px){
 
@@ -67,6 +84,8 @@ padding:14px 20px;
 .menu-btn{
 display:block;
 }
+
+/* MENU OCULTO */
 
 #nav{
 position:absolute;
@@ -82,15 +101,27 @@ gap:5px;
 box-shadow:0 10px 20px rgba(0,0,0,.15);
 }
 
+/* MENU ABIERTO */
 
+#nav.active{
+display:flex;
+}
 
+/* LINKS MOBILE */
 
+#nav a{
+width:100%;
+padding:14px;
+font-size:18px;
+border-radius:10px;
+}
 
 .logo span{
 font-size:22px;
 }
 
 }
+
 
 main{
 max-width:1100px;
