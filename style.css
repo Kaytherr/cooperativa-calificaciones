@@ -1020,8 +1020,9 @@ color:white;
 
 .topbar{
 display:flex;
-gap:10px;
+gap:12px;
 flex-wrap:wrap;
+align-items:center;
 margin-bottom:25px;
 }
 
@@ -1032,6 +1033,11 @@ padding:12px;
 border-radius:10px;
 border:1px solid #ccc;
 font-size:16px;
+}
+
+.topbar input{
+flex:1;
+min-width:260px;
 }
 
 #paginacion{

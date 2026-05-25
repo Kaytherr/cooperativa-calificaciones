@@ -93,8 +93,8 @@ content="website">
 <option value="rating">Mejor puntuados</option>
 </select>
 
-<button onclick="cambiarVista()">
-Tarjetas / Lista
+<button id="btnVista" onclick="cambiarVista()">
+Vista: Tarjetas
 </button>
 
 </div>
@@ -438,6 +438,26 @@ render();
 });
 
 function cambiarVista(){
+
+if(window.innerWidth <= 768){
+return;
+}
+
+vistaLista = !vistaLista;
+
+document.getElementById("btnVista").innerText =
+vistaLista
+? "Vista: Lista"
+: "Vista: Tarjetas";
+
+render();
+
+document.getElementById("btnVista").innerText =
+vistaLista
+? "Vista: Lista"
+: "Vista: Tarjetas";
+
+}
 
 if(window.innerWidth <= 768){
 return;
