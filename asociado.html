@@ -110,9 +110,9 @@ color:#222;
 word-break:break-word;
 }
 
-/* SANCION */
+/* OBSERVACION */
 
-.sancion{
+.observacion{
 margin-top:20px;
 padding:16px;
 border-radius:18px;
@@ -120,12 +120,12 @@ font-weight:bold;
 font-size:16px;
 }
 
-.sem-sancion{
+.sem-observacion{
 background:#e8f8ea;
 color:#178a2f;
 }
 
-.con-sancion{
+.con-observacion{
 background:#fff3cd;
 color:#9a6700;
 }
@@ -215,7 +215,7 @@ cantidad:c[7].replaceAll('"','').trim(),
 formulario:c[8].replaceAll('"','').trim(),
 foto:c[9].replaceAll('"','').trim(),
 estado:c[10].replaceAll('"','').trim(),
-sancion:c[11]?.replaceAll('"','').trim() || ""
+observacion:c[11]?.replaceAll('"','').trim() || ""
 
 };
 
@@ -314,16 +314,16 @@ ${a.telefono}
 
 </div>
 
-<div class="sancion ${
-a.sancion
-? "con-sancion"
-: "sem-sancion"
+<div class="observacion ${
+a.observacion
+? "con-observacion"
+: "sem-observacion"
 }">
 
 ${
-a.sancion
-? "⚠ Posee sanciones registradas"
-: "✔ Sin sanciones"
+a.observacion
+? "⚠ Posee observaciones registradas"
+: "✔ Sin observación"
 }
 
 </div>
