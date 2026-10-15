@@ -126,25 +126,25 @@ background:#ffe0e0;
 color:#c62828;
 }
 
-/* SANCIONES */
+/* observaciones */
 
-.sancion-card{
+.observacion-card{
 margin-top:25px;
 padding:22px;
 border-radius:22px;
 }
 
-.sin-sancion{
+.sin-observacion{
 background:#e8f8ea;
 border:2px solid #b8e7c0;
 }
 
-.con-sancion{
+.con-observacion{
 background:#fff4e0;
 border:2px solid #ffd27a;
 }
 
-.sancion-card h2{
+.observacion-card h2{
 margin-bottom:12px;
 }
 
@@ -328,8 +328,8 @@ cantidad:c[7].replaceAll('"','').trim(),
 formulario:c[8].replaceAll('"','').trim(),
 foto:c[9].replaceAll('"','').trim(),
 estado:c[10].replaceAll('"','').trim(),
-sancion:c[11]?.replaceAll('"','').trim() || "",
-fechaSancion:c[12]?.replaceAll('"','').trim() || ""
+observacion:c[11]?.replaceAll('"','').trim() || "",
+fechaObservacion:c[12]?.replaceAll('"','').trim() || ""
 
 };
 
@@ -430,32 +430,32 @@ ${a.estado}
 
 </div>
 
-<div class="sancion-card ${
-a.sancion
-? "con-sancion"
-: "sin-sancion"
+<div class="observacion-card ${
+a.observacion
+? "con-observacion"
+: "sin-observacion"
 }">
 
 ${
-a.sancion
+a.observacion
 ? `
 <h2>⚠ Sanción registrada</h2>
 
 <p>
 <strong>Motivo:</strong>
-${a.sancion}
+${a.observacion}
 </p>
 
 <p>
 <strong>Fecha:</strong>
-${a.fechaSancion}
+${a.fechaObservacion}
 </p>
 `
 : `
-<h2>✅ Sin sanciones</h2>
+<h2>✅ Sin observaciones</h2>
 
 <p>
-Este asociado no posee sanciones registradas.
+Este asociado no posee observaciones registradas.
 </p>
 `
 }
