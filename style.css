@@ -1270,3 +1270,125 @@ body.pagina-inicio .inicio-useful-icon svg { width: 23px; height: 23px; }
   body.pagina-inicio .inicio-icon { flex-basis: 36px; }
   body.pagina-inicio .inicio-icon svg { width: 21px; height: 21px; }
 }
+
+
+/* REDISEÑO DE FOOTER Y MENÚ MÓVIL — SOLO PORTADA */
+body.pagina-inicio .inicio-footer {
+  background:#082b49;
+  color:#e6f1fa;
+  margin:0;
+  padding:0;
+  border-top:4px solid #4ba3dc;
+}
+body.pagina-inicio .inicio-footer-inner {
+  width:min(1180px,calc(100% - 48px));
+  margin:0 auto;
+  padding:54px 0 42px;
+  display:grid;
+  grid-template-columns:1.35fr .8fr 1fr;
+  gap:58px;
+}
+body.pagina-inicio .inicio-footer-logo {
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  color:#fff;
+  text-decoration:none;
+  font-size:27px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+body.pagina-inicio .inicio-footer-logo img {
+  width:54px;height:54px;border-radius:50%;object-fit:cover;
+  border:2px solid rgba(255,255,255,.7);
+}
+body.pagina-inicio .inicio-footer-brand p {
+  max-width:360px;color:#c6d8e7;line-height:1.75;font-size:14px;margin-bottom:20px;
+}
+body.pagina-inicio .inicio-footer-location {
+  display:flex;align-items:center;gap:9px;color:#e6f1fa;font-size:14px;
+}
+body.pagina-inicio .inicio-footer svg {
+  width:19px;height:19px;flex:0 0 19px;fill:none;stroke:currentColor;
+  stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;
+}
+body.pagina-inicio .inicio-footer-links,
+body.pagina-inicio .inicio-footer-contact {display:flex;flex-direction:column;align-items:flex-start;gap:12px;}
+body.pagina-inicio .inicio-footer h2 {
+  color:#fff;font-size:17px;letter-spacing:.2px;margin:5px 0 8px;
+}
+body.pagina-inicio .inicio-footer-links a {
+  color:#c6d8e7;text-decoration:none;font-size:14px;transition:color .2s,transform .2s;
+}
+body.pagina-inicio .inicio-footer-links a:hover {color:#fff;transform:translateX(3px);}
+body.pagina-inicio .inicio-footer-contact p {display:flex;align-items:center;gap:10px;color:#c6d8e7;font-size:14px;}
+body.pagina-inicio .inicio-footer-contact a {color:#c6d8e7;text-decoration:none;overflow-wrap:anywhere;}
+body.pagina-inicio .inicio-footer-contact a:hover {color:#fff;text-decoration:underline;}
+body.pagina-inicio .inicio-footer-bottom {
+  border-top:1px solid rgba(255,255,255,.15);
+  width:min(1180px,calc(100% - 48px));margin:0 auto;
+  min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  color:#aebfd0;font-size:12px;
+}
+body.pagina-inicio .inicio-footer-bottom a {color:#dceaf5;text-decoration:none;}
+body.pagina-inicio .inicio-footer-bottom a:hover {text-decoration:underline;}
+
+/* Menú desplegable de la portada en celular */
+@media(max-width:900px) {
+  body.pagina-inicio .header {position:sticky;}
+  body.pagina-inicio #nav {
+    top:calc(100% + 8px);left:auto;right:14px;width:min(300px,calc(100vw - 28px));
+    padding:10px;gap:4px;align-items:stretch;
+    background:#fff;border:1px solid #dce8f2;border-radius:16px;
+    box-shadow:0 18px 38px rgba(5,35,60,.22);
+    display:none;flex-direction:column;
+  }
+  body.pagina-inicio #nav.active {display:flex;}
+  body.pagina-inicio #nav a {
+    width:100%;padding:13px 14px;border-radius:10px;
+    color:#123e63;font-size:15px;font-weight:700;
+    border:1px solid transparent;transition:background .2s,color .2s;
+  }
+  body.pagina-inicio #nav a:hover,
+  body.pagina-inicio #nav a[aria-current="page"] {
+    color:#07345b;background:#eaf4fc;border-color:#d7e9f7;
+  }
+  body.pagina-inicio .menu-btn {
+    width:44px;height:44px;display:grid;place-items:center;
+    border:1px solid rgba(255,255,255,.4);border-radius:10px;
+    background:rgba(255,255,255,.1);font-size:26px;line-height:1;
+  }
+}
+@media(max-width:700px) {
+  body.pagina-inicio .inicio-footer-inner {
+    width:calc(100% - 36px);padding:38px 0 30px;
+    grid-template-columns:1fr;gap:30px;
+  }
+  body.pagina-inicio .inicio-footer-brand p {max-width:none;}
+  body.pagina-inicio .inicio-footer-links {display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;}
+  body.pagina-inicio .inicio-footer-links h2 {grid-column:1/-1;}
+  body.pagina-inicio .inicio-footer-contact {gap:15px;}
+  body.pagina-inicio .inicio-footer-bottom {
+    width:calc(100% - 36px);padding:18px 0;align-items:flex-start;flex-direction:column;justify-content:center;
+  }
+}
+
+
+/* Redes sociales del footer: mismo lenguaje visual que los iconos de la portada */
+body.pagina-inicio .inicio-footer-social {display:flex;flex-direction:column;align-items:flex-start;gap:13px;}
+body.pagina-inicio .inicio-footer-social h2 {margin-bottom:8px;}
+body.pagina-inicio .inicio-social-link {display:inline-flex;align-items:center;gap:11px;color:#c6d8e7;text-decoration:none;font-size:14px;transition:color .2s,transform .2s;}
+body.pagina-inicio .inicio-social-link:hover {color:#fff;transform:translateX(3px);}
+body.pagina-inicio .inicio-social-icon {width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(203,232,247,.35);border-radius:10px;background:rgba(203,232,247,.08);color:#cbe8f7;transition:background .2s,border-color .2s,color .2s;}
+body.pagina-inicio .inicio-social-link:hover .inicio-social-icon {background:#cbe8f7;border-color:#cbe8f7;color:#082b49;}
+body.pagina-inicio .inicio-social-icon svg {width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+body.pagina-inicio .inicio-social-facebook svg {fill:currentColor;stroke:none;width:20px;height:20px;}
+@media(max-width:1050px) and (min-width:701px) {
+  body.pagina-inicio .inicio-footer-inner {grid-template-columns:1.2fr .8fr 1fr;gap:32px;}
+  body.pagina-inicio .inicio-footer-social {grid-column:2 / 4;display:flex;flex-direction:row;align-items:center;gap:20px;flex-wrap:wrap;}
+  body.pagina-inicio .inicio-footer-social h2 {width:100%;margin-bottom:0;}
+}
+@media(max-width:700px) {
+  body.pagina-inicio .inicio-footer-social {gap:12px;}
+  body.pagina-inicio .inicio-social-link {min-height:40px;}
+}
