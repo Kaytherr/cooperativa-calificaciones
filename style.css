@@ -1392,3 +1392,29 @@ body.pagina-inicio .inicio-social-facebook svg {fill:currentColor;stroke:none;wi
   body.pagina-inicio .inicio-footer-social {gap:12px;}
   body.pagina-inicio .inicio-social-link {min-height:40px;}
 }
+
+
+/* HEADER INSTITUCIONAL UNIFICADO — C.I.O.S. */
+.header{position:sticky;top:0;z-index:1200;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:10px clamp(18px,4vw,58px);min-height:86px;background:#fff;border-bottom:1px solid #e8eef4;box-shadow:0 3px 14px rgba(7,39,66,.07);}
+.logo{display:flex;align-items:center;gap:14px;min-width:245px;color:#123e63;text-decoration:none;}
+.logo img{width:66px;height:66px;border-radius:50%;object-fit:contain;background:#fff;}
+.logo .logo-text{display:flex;flex-direction:column;gap:3px;line-height:1.15;}
+.logo .logo-text strong{font-size:19px;letter-spacing:.4px;color:#103b60;}
+.logo .logo-text small{font-size:11px;font-weight:700;letter-spacing:.15px;line-height:1.25;color:#34536e;}
+#nav{display:flex;align-items:center;justify-content:center;gap:clamp(4px,1.2vw,18px);flex:1;}
+#nav a{position:relative;color:#334b61;text-decoration:none;padding:12px 7px;font-size:14px;font-weight:600;border-radius:0;transition:color .2s;white-space:nowrap;}
+#nav a::after{content:"";position:absolute;left:7px;right:7px;bottom:3px;height:2px;background:#1f4f68;transform:scaleX(0);transform-origin:left;transition:transform .2s;}
+#nav a:hover,#nav a[aria-current="page"]{color:#123e63;background:transparent;}
+#nav a:hover::after,#nav a[aria-current="page"]::after{transform:scaleX(1);}
+.header-whatsapp{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 22px;border-radius:30px;background:#0d3b60;color:#fff;text-decoration:none;font-weight:700;font-size:14px;white-space:nowrap;box-shadow:0 4px 12px rgba(13,59,96,.15);transition:background .2s,transform .2s;}
+.header-whatsapp:hover{background:#17618f;transform:translateY(-1px);}
+.header-whatsapp svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.menu-btn{display:none;border:1px solid #d9e4ed;background:#fff;color:#123e63;border-radius:10px;padding:8px 12px;font-size:24px;line-height:1;cursor:pointer;}
+/* Las divisiones de las secciones oscuras pasan a ser blancas y sutiles. */
+.inicio-hero,.inicio-institucional,.inicio-contact-banner{border-top:1px solid rgba(255,255,255,.65);}
+.inicio-beneficios{border-bottom:1px solid #fff;}
+.inicio-servicio-img{display:block;width:100%;height:142px;object-fit:cover;border-radius:9px;margin:0 0 17px;}
+.inicio-servicio{overflow:hidden;}
+@media(max-width:1100px){.header{gap:12px;padding-left:20px;padding-right:20px}.logo{min-width:205px}.logo img{width:56px;height:56px}#nav{gap:4px}#nav a{font-size:12px;padding:11px 5px}.header-whatsapp{padding:11px 15px;font-size:13px}}
+@media(max-width:900px){.header{min-height:76px;padding:9px 16px}.logo{min-width:0}.logo img{width:52px;height:52px}.logo .logo-text strong{font-size:17px}.logo .logo-text small{font-size:9px}.menu-btn{display:inline-flex;align-items:center;justify-content:center}#nav{position:absolute;top:calc(100% + 7px);left:14px;right:14px;width:auto;display:none;flex-direction:column;align-items:stretch;gap:2px;padding:10px;background:#fff;border:1px solid #e0e9f0;border-radius:14px;box-shadow:0 16px 35px rgba(5,35,60,.18)}#nav.active{display:flex}#nav a{width:100%;padding:13px 14px;font-size:15px;border-radius:8px}#nav a::after{display:none}#nav a:hover{background:#f0f6fa}.header-whatsapp{margin-left:auto;padding:10px 13px;font-size:0;gap:0}.header-whatsapp svg{width:22px;height:22px}}
+@media(max-width:420px){.logo{gap:8px}.logo img{width:44px;height:44px}.logo .logo-text strong{font-size:15px}.logo .logo-text small{font-size:8px}.header-whatsapp{padding:9px}.menu-btn{padding:7px 10px}}
