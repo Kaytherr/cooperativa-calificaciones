@@ -1696,3 +1696,80 @@ body.pagina-inicio .inicio-aside-item p {
   body.pagina-inicio .inicio-institucional-photo { min-height: 220px; padding: 24px; }
   body.pagina-inicio .inicio-institucional-aside { padding: 12px 22px; }
 }
+
+
+/* ========================================
+   COLUMNA DERECHA - QUIENES SOMOS
+======================================== */
+
+body.pagina-inicio .inicio-institucional-aside {
+    background: #eff6fc;
+    border-radius: 14px;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body.pagina-inicio .inicio-aside-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 4px;
+    border-bottom: 1px solid #dce8f2;
+}
+
+body.pagina-inicio .inicio-aside-item:last-child {
+    border-bottom: none;
+}
+
+body.pagina-inicio .inicio-aside-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border: 1px solid #c9deef;
+    border-radius: 11px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #24577c;
+}
+
+body.pagina-inicio .inicio-aside-icon svg {
+    width: 27px;
+    height: 27px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+body.pagina-inicio .inicio-aside-item h3 {
+    color: #123f63;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 5px;
+}
+
+body.pagina-inicio .inicio-aside-item p {
+    color: #526b80;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 768px) {
+    body.pagina-inicio .inicio-institucional-aside {
+        padding: 12px 18px;
+    }
+
+    body.pagina-inicio .inicio-aside-item {
+        padding: 16px 4px;
+        gap: 13px;
+    }
+}
